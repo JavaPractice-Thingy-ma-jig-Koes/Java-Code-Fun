@@ -12,6 +12,7 @@ public class RNG{
         return true;
       return false;
     }
+    /**@return a boolean with a random chance of being true or false */
     public static boolean WBG(double percentTrue){
       while(percentTrue>1)percentTrue/=10;
       if(percentTrue<Math.random()) return true;

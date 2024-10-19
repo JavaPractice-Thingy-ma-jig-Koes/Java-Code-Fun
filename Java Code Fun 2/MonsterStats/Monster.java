@@ -12,6 +12,7 @@ public class Monster {
     private int maxRangedDamage;
     private int maxHealthPoints;
 
+
     public Monster (int healthPoints, int armorClass, int meleeDamage, int maxRangedDamage) {
         this.healthPoints=healthPoints;
         this.armorClass=armorClass;
