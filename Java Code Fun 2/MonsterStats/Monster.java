@@ -1,5 +1,6 @@
 package MonsterStats;
 
+import Combat.DamagePlus.Damage;
 import PlayerStats.Player;
 import misc_tools.RNG;
 
@@ -36,6 +37,13 @@ public class Monster {
         }
 
 
+
+    }
+    public Damage attack(){
+        boolean meleeOrRange = RNG.RBG();
+        if(meleeOrRange)
+        return new Damage(countDamage(meleeOrRange),"melee attack");
+        return new Damage(countDamage(meleeOrRange),"ranged attack");
     }
 
      //return methods
@@ -67,12 +75,12 @@ public class Monster {
         }
 
 }
-public void dealDamage(Player other, boolean meleeOrRange){
+public int countDamage(boolean meleeOrRange){
     if(meleeOrRange){
-        other.takeDamage(RNG.RIG(meleeDamage,meleeDamage+level));
+        return (RNG.RIG(meleeDamage,meleeDamage+level));
     }
     else{
-        other.takeDamage(RNG.RIG(0,maxRangedDamage));
+        return (RNG.RIG(0,maxRangedDamage));
     }
 }
 

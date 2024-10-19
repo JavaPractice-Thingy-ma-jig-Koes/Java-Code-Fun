@@ -1,4 +1,5 @@
-
+package Combat.DamagePlus;
+import PlayerStats.Player;
 
 public class Damage {
     
@@ -31,11 +32,26 @@ public class Damage {
         this.damageType=damageType;
     }
     public Damage (int damage, int armorClassNegation, String damageSource, String damageType, double toHitChance){
+
+        this.damage=damage;
+        this.armorClassNegation=armorClassNegation;
+        this.damageSource=damageSource;
+        this.toHitChance=toHitChance;
+        this.damageType=damageType;
+    }
+    public Damage (int damage, int armorClassNegation, String damageSource, double toHitChance){
         setZero();
         this.damage=damage;
         this.armorClassNegation=armorClassNegation;
         this.damageSource=damageSource;
         this.toHitChance=toHitChance;
+    }
+    public Damage (int damage, int armorClassNegation, String damageSource, boolean ignoreArmorClass){
+        setZero();
+        this.damage=damage;
+        this.armorClassNegation=armorClassNegation;
+        this.damageSource=damageSource;
+        if(ignoreArmorClass) armorClassNegation=Integer.MAX_VALUE-1;
     }
     
 
@@ -44,7 +60,20 @@ public class Damage {
         damage=0;
         damageType="no damage";
         toHitChance=100;
-
         damageSource="none";
     }
+    public int dealDamage(Player toHurt){
+        
+        if(toHitChance<Math.random()*100){
+        if(toHurt.getPlayerArmorClass()-armorClassNegation<0) armorClassNegation=toHurt.getPlayerArmorClass();
+       toHurt.takeDamage(damage+armorClassNegation); 
+       return damage+armorClassNegation;
+    }
+    return 0;
+}
+    
+    public String getDamageSource(){
+    return damageSource;}
+
+
 }
