@@ -138,5 +138,14 @@ public class Player {
     public int swordAttack(){
         return (int)(Math.random()*meleeWeapon.meleeRange())+meleeWeapon.meleeDamage();
     }
+        /** @see quickDescription decreases healthPoints by a given amount of damage. 
+     * @see ArmorClassReduction includes the damage reduction from the armor class */
+    public void takeDamage(int damage){
+        if(armor.getArmorClass()-damage>0){
+            healthPoints-=damage-armor.getArmorClass();
+        }
+
+
     
+}
 }

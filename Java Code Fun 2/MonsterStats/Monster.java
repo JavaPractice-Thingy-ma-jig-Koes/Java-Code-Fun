@@ -1,5 +1,8 @@
 package MonsterStats;
 
+import PlayerStats.Player;
+import misc_tools.RNG;
+
 public class Monster {
     
     private int healthPoints;
@@ -9,14 +12,29 @@ public class Monster {
     private int maxRangedDamage;
     private int maxHealthPoints;
 
-    public Monster (int healthPoints, int armorClass, int level, int meleeDamage, int maxRangedDamage) {
+    public Monster (int healthPoints, int armorClass, int meleeDamage, int maxRangedDamage) {
         this.healthPoints=healthPoints;
         this.armorClass=armorClass;
-        this.level=level;
+
         this.meleeDamage=meleeDamage;
         this.maxRangedDamage=maxRangedDamage;
         this.maxHealthPoints=healthPoints;
+        this.level = (healthPoints/2+armorClass*2+meleeDamage+maxRangedDamage)/10;
         
+    }
+    public Monster (int level){
+        int randomModifier = RNG.RIG(2,4);
+        this.level = level;
+        if(RNG.RBG()){
+        this.healthPoints= (int)Math.pow(randomModifier, level);
+        this.armorClass = level;
+        }
+        else{
+            this.healthPoints = level*randomModifier;
+            this.armorClass = level+randomModifier+1;
+        }
+
+
     }
 
      //return methods
@@ -46,5 +64,17 @@ public class Monster {
         if(armorClass-damage>0){
             healthPoints-=damage-armorClass;
         }
+
 }
+public void dealDamage(Player other, boolean meleeOrRange){
+    if(meleeOrRange){
+        other.takeDamage(RNG.RIG(meleeDamage,meleeDamage+level));
+    }
+    else{
+        other.takeDamage(RNG.RIG(0,maxRangedDamage));
+    }
+}
+
+
+
 }
