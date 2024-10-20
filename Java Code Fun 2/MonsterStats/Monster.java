@@ -12,11 +12,15 @@ public class Monster {
     private int meleeDamage;
     private int maxRangedDamage;
     private int maxHealthPoints;
+    private boolean isPresent;
+    private int lastAttack;
+    private final String[] moveList = {"melee attack", "ranged attack"};
 
 
     public Monster (int healthPoints, int armorClass, int meleeDamage, int maxRangedDamage) {
         this.healthPoints=healthPoints;
         this.armorClass=armorClass;
+
 
         this.meleeDamage=meleeDamage;
         this.maxRangedDamage=maxRangedDamage;
@@ -40,10 +44,11 @@ public class Monster {
 
     }
     public Damage attack(){
-        boolean meleeOrRange = RNG.RBG();
-        if(meleeOrRange)
-        return new Damage(countDamage(meleeOrRange),"melee attack");
-        return new Damage(countDamage(meleeOrRange),"ranged attack");
+        boolean meleeOrRange=false;
+        lastAttack=RNG.RIG(0, 1);
+        if(lastAttack==1){ meleeOrRange=true;
+        return new Damage(countDamage(meleeOrRange),moveList[lastAttack]);}
+        return new Damage(countDamage(meleeOrRange),moveList[lastAttack]);
     }
 
      //return methods
@@ -82,7 +87,12 @@ public int countDamage(boolean meleeOrRange){
     else{
         return (RNG.RIG(0,maxRangedDamage));
     }
+    
 }
+public String getLastAttack(){
+    return moveList[lastAttack];
+}
+public int getLastAttackNum(){return lastAttack;}
 
 
 

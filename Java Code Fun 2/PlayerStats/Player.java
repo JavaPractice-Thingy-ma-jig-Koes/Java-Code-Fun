@@ -138,6 +138,11 @@ public class Player {
     public int swordAttack(){
         return (int)(Math.random()*meleeWeapon.meleeRange())+meleeWeapon.meleeDamage();
     }
+        /**@see quickDescription returns a possible value for the bow damage. */
+
+    public int bowAttack(){
+        return (int)(Math.random()*(rangedWeapon.getMaxRangedDamage()+1));
+    }
         /** @see quickDescription decreases healthPoints by a given amount of damage. 
      * @see ArmorClassReduction includes the damage reduction from the armor class */
     public void takeDamage(int damage){

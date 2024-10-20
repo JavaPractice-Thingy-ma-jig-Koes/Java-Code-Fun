@@ -26,7 +26,7 @@ public class Convert {
     }
         public static void printColor(String color, boolean isBackground) throws Exception{
        {
-            if(isBackground = true){
+            if(isBackground){
             System.out.print("\u001b["+(getColor(color)+10)+"m");
 
             }

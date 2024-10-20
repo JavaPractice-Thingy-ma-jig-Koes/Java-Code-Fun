@@ -20,7 +20,7 @@ public class Dragon extends Monster {
     }
 @Override
     public Damage attack(){
-        int acNeg;
+        int acNeg=0;
         switch (lastAttack) {
             case 1:
                 acNeg=(level/2)+1;
@@ -32,7 +32,7 @@ public class Dragon extends Monster {
                 acNeg=Integer.MAX_VALUE;
                 break;
             default:
-                acNeg=0;
+                
                 break;
         }
         Damage temp = new Damage(findDamage(),acNeg,getLastAttack(),false);

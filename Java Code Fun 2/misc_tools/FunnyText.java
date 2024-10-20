@@ -30,9 +30,9 @@ public class FunnyText {
         *   @param info the text desired to be printed
         *   @param color the desired color (background can be added as well of the color) Black: 30 Red: 31 Green: 32 Yellow: 33 Blue: 34 Magenta: 35 Cyan: 36 White: 37, Backgrounds Background Black: 40 Background Red: 41 Background Green: 42 Background Yellow: 43 Background Blue: 44 Background Magenta: 45 Background Cyan: 46 Background White: 47.
         */
-    public static void print(String info, String color) throws InterruptedException{
+    public static void print(String info, double color) throws InterruptedException{
   
-        System.out.print("\u001b["+color+"m");
+        System.out.print("\u001b["+(int)color+"m");
         
 
         for(int length = info.length();length>0;length--){
@@ -41,6 +41,41 @@ public class FunnyText {
         }
         System.out.print("\u001b[0m");
     }
+            /**  
+        *   @param info the text desired to be printed
+        */
+        public static void print(String info, String color) throws InterruptedException{
+            try {
+                Convert.printColor(color,false);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            
+    
+            for(int length = info.length();length>0;length--){
+                System.out.print(info.substring(info.length()-length,info.length()-length+1));
+                Thread.sleep(75);
+            }
+            System.out.print("\u001b[0m");
+        }
+        public static void print(String info, String color, boolean isBackground) throws InterruptedException{
+            try {
+                Convert.printColor(color,isBackground);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            
+    
+            for(int length = info.length();length>0;length--){
+                System.out.print(info.substring(info.length()-length,info.length()-length+1));
+                Thread.sleep(75);
+            }
+            System.out.print("\u001b[0m");
+        }
     
         /**  
         *   @param info the text desired to be printed
@@ -89,7 +124,12 @@ public class FunnyText {
         */
     public static void println(String info, String color) throws InterruptedException{
         CleanUp.enter();
-        System.out.print("\u001b["+color+"m");
+        try {
+            Convert.printColor(color,false);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         
 
         for(int length = info.length();length>0;length--){
@@ -106,7 +146,12 @@ public class FunnyText {
         */
     public static void println(String info, int waitTime, String color) throws InterruptedException{
         CleanUp.enter();
-        System.out.print(color);
+        try {
+            Convert.printColor(color,false);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         for(int length = info.length();length>0;length--){
             System.out.print(info.substring(info.length()-length,info.length()-length+1));
