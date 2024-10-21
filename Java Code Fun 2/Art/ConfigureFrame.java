@@ -35,6 +35,7 @@ public class ConfigureFrame {
         frame.setVisible(true);
         frame.add(b1);
         frame.add(b2);
+        b2.setAlignmentX(width/2);
         frame.pack();
     }
 
