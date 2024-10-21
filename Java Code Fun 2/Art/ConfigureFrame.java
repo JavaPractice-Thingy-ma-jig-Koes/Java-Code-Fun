@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class ConfigureFrame {
 
-    private JFrame frame = new JFrame();
+    private JFrame frame = new JFrame("Java Code Fun");
     
     public ConfigureFrame(int height, int width){
         JFrame frame = this.frame;
