@@ -1,4 +1,4 @@
-package Equipment;
+package equipment;
 
 public class Item {
     

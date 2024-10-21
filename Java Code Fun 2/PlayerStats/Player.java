@@ -1,9 +1,10 @@
-package PlayerStats;
+package playerStats;
 
-import MonsterStats.Monster;
+import equipment.Item;
+import equipment.Tools.*;
+import monsterStats.Monster;
+
 import java.util.HashMap;
-import Equipment.Item;
-import Equipment.Tools.*;
 
 public class Player {
     

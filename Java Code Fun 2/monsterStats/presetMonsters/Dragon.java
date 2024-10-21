@@ -1,8 +1,9 @@
-package MonsterStats.Preset_Monsters;
+package monsterStats.presetMonsters;
 
-import Combat.DamagePlus.Damage;
-import MonsterStats.Monster;
+
+import combat.damagePlus.Damage;
 import misc_tools.RNG;
+import monsterStats.Monster;
 
 public class Dragon extends Monster {
     /** Represents : wing, claw, double claw, tail, breath, and waiting/doing nothing. */

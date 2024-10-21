@@ -1,4 +1,4 @@
-package Combat.DamagePlus;
+package combat.damagePlus;
 import java.util.Arrays;
 public class Debuffs {
     

@@ -1,5 +1,6 @@
-package Combat.DamagePlus;
-import PlayerStats.Player;
+package combat.damagePlus;
+
+import playerStats.Player;
 
 public class Damage {
     

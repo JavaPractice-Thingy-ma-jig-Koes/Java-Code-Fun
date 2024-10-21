@@ -1,4 +1,4 @@
-package Equipment;
+package equipment;
 
 public class Treasure extends Item{
 

@@ -1,10 +1,10 @@
-package Maps;
+package maps;
 
 import java.util.HashMap;
 import java.util.List;
 
-import MonsterStats.Monster;
 import misc_tools.RNG;
+import monsterStats.Monster;
 
 public class Room {
 
@@ -54,7 +54,7 @@ public class Room {
 			
 	}
 
-
+/* 
     private Monster[] fillRoom(){
 
         if((Math.random()*length>width)){
@@ -62,7 +62,7 @@ public class Room {
 
         }
     }
-
+*/
 }//class bracket
 	/*
 Possible Rooms (theory)

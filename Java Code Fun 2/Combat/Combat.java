@@ -1,10 +1,11 @@
-package Combat;
+package combat;
 
-import Combat.DamagePlus.Damage;
 import java.util.Scanner;
-import MonsterStats.Monster;
+
+import combat.damagePlus.Damage;
 import PlayerStats.Player;
 import misc_tools.FunnyText;
+import playerStats.Player;
 
 public class Combat {
 

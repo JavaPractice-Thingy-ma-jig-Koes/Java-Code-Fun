@@ -1,8 +1,9 @@
-package MonsterStats;
+package monsterStats;
 
-import Combat.DamagePlus.Damage;
 import PlayerStats.Player;
 import misc_tools.RNG;
+import playerStats.Player;
+import combat.damagePlus.Damage;
 
 public class Monster {
     

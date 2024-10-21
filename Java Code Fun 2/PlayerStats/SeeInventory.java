@@ -1,4 +1,4 @@
-package PlayerStats;
+package playerStats;
 
 import java.util.Scanner;
 
