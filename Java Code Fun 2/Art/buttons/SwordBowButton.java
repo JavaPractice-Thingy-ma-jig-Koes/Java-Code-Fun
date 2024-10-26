@@ -19,20 +19,18 @@ public class SwordBowButton extends WeaponButton implements ActionListener
         public SwordBowButton()
         {
 
+            setOpaque(true);
 
-            
-            
-            super.initButtSettings();
-            setBackground(Color.red);
-            setText("Sword");
+            setBackground(Color.WHITE);
+            setText("Click Me");
             
             addActionListener(this);
     }
         private void setGreen(boolean wantGreen){
             if(wantGreen)
-            setBackground(Color.BLUE);
+            setBackground(new Color(210,150,200));
             else
-            setBackground(Color.ORANGE);
+            setBackground(new Color(180, 210, 180));
         }
         public boolean getSwordBow(){return isSword;}
         @Override

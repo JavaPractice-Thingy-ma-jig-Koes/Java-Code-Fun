@@ -20,20 +20,25 @@ public class GeneralGUI implements Runnable {
     private Label l = new Label("");
     private SwordBowButton sbB = new SwordBowButton();
     private JTextField input = new JTextField("Hello There");
-    private ConfigureFrame f = new ConfigureFrame(400,500);
+    private ConfigureFrame f = new ConfigureFrame(600,800);
     private ReadyButton r = new ReadyButton();
+    private JPanel p = new JPanel();
     
     public GeneralGUI(){
 
         
         sbB.setBorder(BorderFactory.createLineBorder(Color.blue,5,true));
-        f.add(l);
-        f.add(input);
-        f.add(sbB);
-        f.add(r);
-        f.setLayout(new BorderLayout());
+        p.add(l);
+        p.add(input);
+        p.add(sbB);
+        p.add(r);
+        p.setLayout(new BorderLayout());
+        f.setContentPane(p);
+        
+        f.setBackground(Color.BLUE);
+        p.setBackground(new Color(190, 215, 250));
 
-        l.setBounds(20,20,400,20);
+        l.setBounds(20,20,760,20);
 
         r.setBounds(20,200,80,30);
         input.setBounds(20,50,100,30);

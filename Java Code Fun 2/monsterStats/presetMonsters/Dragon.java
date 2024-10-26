@@ -15,7 +15,7 @@ public class Dragon extends Monster {
 
     public Dragon(int level) {
         
-        super(((level+1)*5),((int)Math.pow(level,2)/3+level%3+1),(int)(level*1.35),0);
+        super(((level+1)*5),((int)Math.pow(level,2)/3+level%3+1),(int)(level*1.35),0,"dragon");
         this.level=level;
         
     }

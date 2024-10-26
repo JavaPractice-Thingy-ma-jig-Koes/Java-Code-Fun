@@ -8,6 +8,7 @@ public class ConfigureFrame extends JFrame {
 
     private JFrame frame = new JFrame("Java Code Fun");
     
+    
     public ConfigureFrame(int height, int width){
 
         
@@ -17,12 +18,16 @@ setVisible(true);
     }
     public ConfigureFrame(int height, int width, boolean isVisible){
         JFrame frame = this.frame;
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         
 setSize(height,width);
 setVisible(isVisible);
 
     }
     public ConfigureFrame(int height, int width, JButton b1){
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         
 setSize(height,width);
@@ -31,6 +36,8 @@ add(b1);
 setVisible(true);
     }
     public ConfigureFrame(int height, int width, JButton b1, JButton b2){
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         
 setSize(height,width);

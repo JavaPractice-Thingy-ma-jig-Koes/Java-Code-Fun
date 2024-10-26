@@ -15,12 +15,14 @@ public class Monster {
     private int maxHealthPoints;
     private boolean isPresent;
     private int lastAttack;
+    private String name;
     private final String[] moveList = {"melee attack", "ranged attack"};
 
 
-    public Monster (int healthPoints, int armorClass, int meleeDamage, int maxRangedDamage) {
+    public Monster (int healthPoints, int armorClass, int meleeDamage, int maxRangedDamage, String name) {
         this.healthPoints=healthPoints;
         this.armorClass=armorClass;
+        this.name = name;
 
 
         this.meleeDamage=meleeDamage;
@@ -32,6 +34,7 @@ public class Monster {
     public Monster (int level){
         int randomModifier = RNG.RIG(2,4);
         this.level = level;
+        this.name = "monster";
         if(RNG.RBG()){
         this.healthPoints= (int)Math.pow(randomModifier, level);
         this.armorClass = level;
@@ -81,6 +84,10 @@ public class Monster {
         }
 
 }
+    public String getName(){ return name;}
+    public void setName(String newName){
+        if(newName!=null) name = ""+newName;
+    }
 public int countDamage(boolean meleeOrRange){
     if(meleeOrRange){
         return (RNG.RIG(meleeDamage,meleeDamage+level));

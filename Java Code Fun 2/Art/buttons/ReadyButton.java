@@ -15,6 +15,8 @@ public class ReadyButton extends JButton implements ActionListener {
 
     public ReadyButton(){
         super("Ready");
+        setOpaque(true);
+
         addActionListener(this);
         setBorder(new LineBorder(Color.black,3, true) );
         setBackground(Color.DARK_GRAY);
