@@ -12,6 +12,13 @@ public class CleanUp {
     public static void enter(){
         System.out.println("");
     }
+    public static void safeSleep(long millis){
+        try {
+            Thread.sleep(millis);
+        } catch (Exception e) {
+            System.err.println("Something went wrong with sleep");
+        }
+    }
 
 
 }
