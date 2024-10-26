@@ -6,6 +6,8 @@ import monsterStats.Monster;
 
 import java.util.HashMap;
 
+import combat.damagePlus.Damage;
+
 public class Player {
     
     private int healthPoints;
@@ -85,7 +87,7 @@ public class Player {
         public void equip (Armor other){
             this.armor=other;
         }
-
+/**@deprecated does not work with the new GUI */
         public void printInventory(){
 
             System.out.println("Current Melee Weapon " + meleeWeapon.getName());
@@ -97,8 +99,8 @@ public class Player {
 
         }
 
-    
-     //return methods
+
+     //getter methods
     /** @see quickDescription returns the player's current hitpoints*/
      public int getPlayerHealthPoints(){
         return healthPoints;
@@ -119,7 +121,10 @@ public class Player {
     public int getPlayerRangedDamageMax(){
         return rangedWeapon.getMaxRangedDamage();
     }
-    /**@see quickDescription sets the players health to the originally specified value in the initialization of the object. */
+
+
+    
+/**@see quickDescription sets the players health to the originally specified value in the initialization of the object. */
     public void fillPlayerHealth(){
         healthPoints=playerMaxHealth;
     }
@@ -136,13 +141,13 @@ public class Player {
         }
 
         /**@see quickDescription returns a possible value for the sword damage. */
-    public int swordAttack(){
-        return (int)(Math.random()*meleeWeapon.meleeRange())+meleeWeapon.meleeDamage();
+    public Damage swordAttack(){
+        return new Damage((int)(Math.random()*meleeWeapon.meleeRange())+meleeWeapon.meleeDamage(),meleeWeapon.getName());
     }
         /**@see quickDescription returns a possible value for the bow damage. */
 
-    public int bowAttack(){
-        return (int)(Math.random()*(rangedWeapon.getMaxRangedDamage()+1));
+    public Damage bowAttack(){
+        return new Damage((int)(Math.random()*(rangedWeapon.getMaxRangedDamage()+1)),rangedWeapon.getName());
     }
         /** @see quickDescription decreases healthPoints by a given amount of damage. 
      * @see ArmorClassReduction includes the damage reduction from the armor class */
@@ -150,6 +155,7 @@ public class Player {
         if(armor.getArmorClass()-damage>0){
             healthPoints-=damage-armor.getArmorClass();
         }
+
 
 
     
