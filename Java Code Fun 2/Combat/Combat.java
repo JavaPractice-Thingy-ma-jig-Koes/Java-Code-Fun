@@ -3,7 +3,7 @@ package combat;
 import java.util.Scanner;
 
 import combat.damagePlus.Damage;
-import PlayerStats.Player;
+import monsterStats.*;
 import misc_tools.FunnyText;
 import playerStats.Player;
 

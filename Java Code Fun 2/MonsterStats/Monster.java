@@ -1,6 +1,6 @@
 package monsterStats;
 
-import PlayerStats.Player;
+import playerStats.Player;
 import misc_tools.RNG;
 import playerStats.Player;
 import combat.damagePlus.Damage;
