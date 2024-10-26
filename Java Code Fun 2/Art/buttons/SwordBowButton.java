@@ -22,8 +22,8 @@ public class SwordBowButton extends WeaponButton implements ActionListener
 
             
             
-            //super.initButtSettings();
-            setBackground(Color.GRAY);
+            super.initButtSettings();
+            setBackground(Color.red);
             setText("Sword");
             
             addActionListener(this);

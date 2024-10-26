@@ -12,7 +12,9 @@ import java.awt.LayoutManager2;
 import java.awt.Rectangle;
 
 import javax.swing.*;
-
+/**@see notes This class is a container for general GUI stuff
+ * @see notesCont to bring up GUI stuff instantiate a GeneralGUI object.
+ */
 public class GeneralGUI implements Runnable {
 
     private Label l = new Label("");
@@ -31,7 +33,7 @@ public class GeneralGUI implements Runnable {
         f.add(r);
         f.setLayout(new BorderLayout());
 
-        l.setBounds(20,20,90,20);
+        l.setBounds(20,20,400,20);
 
         r.setBounds(20,200,80,30);
         input.setBounds(20,50,100,30);
@@ -57,4 +59,15 @@ public class GeneralGUI implements Runnable {
     public void run() {
         GeneralGUI g = new GeneralGUI();
     }
+    public boolean getIsReady(){
+        return r.getIsReady();
+    }
+    public void prepare(){
+        r.prepare();
+    }
+    public boolean getSwordBow(){
+        return sbB.getSwordBow();
+    }
+
+    
 }

@@ -73,13 +73,13 @@ public class WeaponButton extends JButton {
         }
         public void initButtSettings(){
             weapon.setOpaque(true);
-            //weapon.setContentAreaFilled(true);
-            //weapon.setBorderPainted(true);
-            //weapon.setFocusPainted(true);
+            weapon.setContentAreaFilled(true);
+            weapon.setBorderPainted(true);
+            weapon.setFocusPainted(true);
             weapon.setVisible(true);
-            weapon.setMaximumSize( new Dimension(90,90) );
-            weapon.setBorder( BorderFactory.createBevelBorder(4, Color.BLACK,Color.BLACK));
-            weapon.setMinimumSize(new Dimension(10,10));
+            //weapon.setMaximumSize( new Dimension(90,90) );
+            //weapon.setBorder( BorderFactory.createBevelBorder(4, Color.BLACK,Color.BLACK));
+            //weapon.setMinimumSize(new Dimension(10,10));
             //weapon.setSize(75,40);
         }
 

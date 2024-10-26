@@ -11,7 +11,7 @@ import javax.swing.border.LineBorder;
 public class ReadyButton extends JButton implements ActionListener {
     
     private boolean canBeClicked = false;
-    private boolean clicked =false;
+    private volatile boolean clicked =false;
 
     public ReadyButton(){
         super("Ready");
