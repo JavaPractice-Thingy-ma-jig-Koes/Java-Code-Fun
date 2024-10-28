@@ -8,7 +8,7 @@ public class Damage {
     private int armorClassNegation;
     private int damage;
     private String damageType;
-    private double toHitChance;
+    private double toHitChance=100;
     private String damageSource;
 
     public Damage (){
@@ -32,6 +32,7 @@ public class Damage {
         this.armorClassNegation=armorClassNegation;
         this.damageSource=damageSource;
         this.damageType=damageType;
+        this.toHitChance=100;
     }
     public Damage (int damage, int armorClassNegation, String damageSource, String damageType, double toHitChance){
 
@@ -53,6 +54,7 @@ public class Damage {
         this.damage=damage;
         this.armorClassNegation=armorClassNegation;
         this.damageSource=damageSource;
+        this.toHitChance=100;
         if(ignoreArmorClass) armorClassNegation=Integer.MAX_VALUE-1;
     }
     
@@ -66,8 +68,9 @@ public class Damage {
     }
     public int dealDamage(Player toHurt){
         
-        if(toHitChance<Math.random()*100){
-        if(toHurt.getPlayerArmorClass()-armorClassNegation<0) armorClassNegation=toHurt.getPlayerArmorClass();
+        if(toHitChance>Math.random()*100){
+        if(toHurt.getPlayerArmorClass()-armorClassNegation<0) 
+        armorClassNegation=toHurt.getPlayerArmorClass();
        toHurt.takeDamage(damage+armorClassNegation); 
        return damage+armorClassNegation;
     }
@@ -75,7 +78,7 @@ public class Damage {
 }
 /**@see note already deals the damage. It just returns the amount (ish) of damage dealt */
     public int dealDamage(Monster toHurt){
-        if(toHitChance<Math.random()*100){
+        if(toHitChance>=Math.random()*100){
             if(toHurt.getMonsterArmorClass()-armorClassNegation<0) armorClassNegation=toHurt.getMonsterArmorClass();
            toHurt.takeDamage(damage+armorClassNegation); 
            return damage+armorClassNegation;

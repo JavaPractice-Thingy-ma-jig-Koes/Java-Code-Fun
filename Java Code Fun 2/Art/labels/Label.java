@@ -1,4 +1,4 @@
-package Art;
+package Art.labels;
 
 import javax.swing.JLabel;
 

@@ -79,7 +79,7 @@ public class Monster {
     /** @see quickDescription decreases healthPoints by a given amount of damage. 
      * @see ArmorClassReduction includes the damage reduction from the armor class */
     public void takeDamage(int damage){
-        if(armorClass-damage>0){
+        if(armorClass-damage<0){
             healthPoints-=damage-armorClass;
         }
 
@@ -101,6 +101,7 @@ public String getLastAttack(){
     return moveList[lastAttack];
 }
 public int getLastAttackNum(){return lastAttack;}
+public int getXp(){return level*5;}
 
 
 

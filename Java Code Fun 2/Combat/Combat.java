@@ -9,10 +9,11 @@ import misc_tools.CleanUp;
 import misc_tools.FunnyText;
 import playerStats.Player;
 
-public class Combat extends Thread{
+public class Combat {
     private GeneralGUI gui;
     private Player p1;
     private Monster e1;
+    private Damage dealth;
 
 
 
@@ -22,34 +23,40 @@ public class Combat extends Thread{
         this.e1=e1;
         
     }
-    @Override
-    public synchronized void run() {
+
+    public void fight() {
             System.out.println("Combat has started");
-            gui.print("ARE \nYOU \nREADY?");
+            gui.enter();
+            gui.println("are you ready?");
             gui.prepare();
+            
 
             waitTilReady();
 
             gui.clear();
-            while(p1.getPlayerHealthPoints()>0 && e1.getMonsterHealthPoints()>0)
+            while(stillFighting())
             brawl();
 
 
         }
 
         public void brawl(){
-            e1.attack().dealDamage(p1);
-            gui.print("The "+e1.getName()+" attacks you with a "+e1.getLastAttack());
+            dealth=e1.attack();
+            
+            
+            gui.print("The "+e1.getName()+" attacks you with a "+e1.getLastAttack()+" dealing "+dealth.dealDamage(p1)+" damage.");
+            gui.update();
+            if(stillFighting()){
             CleanUp.safeSleep(1500);
             gui.clear();
             gui.prepare();
             gui.print("Click READY when ready.");
             waitTilReady();
             gui.clear();
-            Damage dealth = pAttack();
+            dealth = pAttack();
 
-            gui.print("You attack and deal "+dealth.dealDamage(e1)+" to the enemy with your "+dealth.getDamageSource()+".");
-
+            gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+".");
+            }
 
 
 
@@ -66,6 +73,10 @@ public class Combat extends Thread{
             if(gui.getSwordBow())
             return p1.swordAttack();
             return p1.bowAttack();
+        }
+        public boolean stillFighting(){
+
+            return p1.getPlayerHealthPoints()>0 && e1.getMonsterHealthPoints()>0;
         }
         
 
