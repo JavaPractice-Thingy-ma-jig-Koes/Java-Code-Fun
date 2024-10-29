@@ -1,14 +1,14 @@
-package playerStats;
+package characters.playerStats;
 
 import equipment.Item;
 import equipment.Tools.*;
-import monsterStats.Monster;
 
 import java.util.HashMap;
 
+import characters.monsterStats.Monster;
 import combat.damagePlus.Damage;
 
-public class Player {
+public class Player extends characters.Character {
     
     private int healthPoints;
     //private int armorClass;
@@ -100,15 +100,7 @@ public class Player {
         }
 
 
-     //getter methods
-    /** @see quickDescription returns the player's current hitpoints*/
-     public int getPlayerHealthPoints(){
-        return healthPoints;
-    }
-    /** @see quickDescription returns the player's current hitpoints*/
-     public int getPlayerGold(){
-        return gold;
-    }
+
     /**@see quickDescription returns the player's armor class */
     public int getPlayerArmorClass(){
         return armor.getArmorClass();
@@ -122,17 +114,6 @@ public class Player {
         return rangedWeapon.getMaxRangedDamage();
     }
 
-
-    
-/**@see quickDescription sets the players health to the originally specified value in the initialization of the object. */
-    public void fillPlayerHealth(){
-        healthPoints=playerMaxHealth;
-    }
-    /** @see quickDescription decreases healthPoints by a given amount of damage. 
-     * @see ArmorClassReduction includes the damage reduction from the armor class */
-    public void givePlayerDamage(int damage){
-        healthPoints+=armor.getArmorClass()-damage;
-    }
     /**@see quickDescription increments experience value by an integral amount */
     public void giveXP(int increaseBy){
         if(increaseBy>=0){

@@ -3,11 +3,11 @@ package combat;
 
 
 import Art.GeneralGUI;
+import characters.monsterStats.*;
+import characters.playerStats.Player;
 import combat.damagePlus.Damage;
-import monsterStats.*;
 import misc_tools.CleanUp;
 import misc_tools.FunnyText;
-import playerStats.Player;
 
 public class Combat {
     private GeneralGUI gui;
@@ -76,7 +76,7 @@ public class Combat {
         }
         public boolean stillFighting(){
 
-            return p1.getPlayerHealthPoints()>0 && e1.getMonsterHealthPoints()>0;
+            return p1.getHealth()>0 && e1.getHealth()>0;
         }
         
 

@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.border.Border;
 
-import playerStats.Player;
+import characters.playerStats.Player;
 
 public class SwordBowButton extends WeaponButton implements ActionListener
 {

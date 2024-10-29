@@ -1,11 +1,10 @@
-package monsterStats;
+package characters.monsterStats;
 
-import playerStats.Player;
 import misc_tools.RNG;
-import playerStats.Player;
+import characters.playerStats.Player;
 import combat.damagePlus.Damage;
 
-public class Monster {
+public class Monster extends characters.Character {
     
     private int healthPoints;
     private int armorClass;
@@ -56,10 +55,6 @@ public class Monster {
     }
 
      //return methods
-    /** @see quickDescription returns the Monster's current hitpoints*/
-    public int getMonsterHealthPoints(){
-        return healthPoints;
-    }
     /**@see quickDescription returns the Monster's armor class */
     public int getMonsterArmorClass(){
         return armorClass;
@@ -72,10 +67,7 @@ public class Monster {
     public int getMonsterRangedDamageMax(){
         return maxRangedDamage;
     }
-    /**@see quickDescription sets the Monsters health to the originally specified value in the initialization of the object. */
-    public void fillHealth(){
-        healthPoints=maxHealthPoints;
-    }
+
     /** @see quickDescription decreases healthPoints by a given amount of damage. 
      * @see ArmorClassReduction includes the damage reduction from the armor class */
     public void takeDamage(int damage){
@@ -84,7 +76,7 @@ public class Monster {
         }
 
 }
-    public String getName(){ return name;}
+
     public void setName(String newName){
         if(newName!=null) name = ""+newName;
     }
@@ -101,7 +93,7 @@ public String getLastAttack(){
     return moveList[lastAttack];
 }
 public int getLastAttackNum(){return lastAttack;}
-public int getXp(){return level*5;}
+
 
 
 

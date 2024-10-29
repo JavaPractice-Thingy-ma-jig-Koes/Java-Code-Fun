@@ -8,15 +8,15 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Art.labels.Label;
-import playerStats.Player;
 import Art.labels.healthDisplays.*;
+import characters.playerStats.Player;
 
 public class PlayerHealthDisplay extends Label {
 
     private Player player;
 
     public PlayerHealthDisplay(Player player) {
-        super("Player Hit Points : "+player.getPlayerHealthPoints());
+        super("Player Hit Points : "+player.getHealth());
         this.player=player;
         ImageIcon redHeart = new ImageIcon("redHeart.png");
         this.setIcon(redHeart);
@@ -26,8 +26,8 @@ public class PlayerHealthDisplay extends Label {
 
     }
     public void update(){
-        setText("Player Hit Points : "+player.getPlayerHealthPoints());
-        System.out.println("New Player Health : "+player.getPlayerHealthPoints());
+        setText("Player Hit Points : "+player.getHealth());
+        System.out.println("New Player Health : "+player.getHealth());
     }
 
 

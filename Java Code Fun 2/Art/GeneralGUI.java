@@ -5,7 +5,7 @@ import Art.buttons.SwordBowButton;
 import Art.buttons.WeaponButton;
 import Art.labels.Label;
 import Art.labels.healthDisplays.PlayerHealthDisplay;
-import playerStats.Player;
+import characters.playerStats.Player;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

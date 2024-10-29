@@ -3,8 +3,8 @@ package maps;
 import java.util.HashMap;
 import java.util.List;
 
+import characters.monsterStats.Monster;
 import misc_tools.RNG;
-import monsterStats.Monster;
 
 public class Room {
 

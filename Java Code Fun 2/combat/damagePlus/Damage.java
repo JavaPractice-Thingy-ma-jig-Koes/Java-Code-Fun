@@ -1,7 +1,7 @@
 package combat.damagePlus;
 
-import monsterStats.Monster;
-import playerStats.Player;
+import characters.monsterStats.Monster;
+import characters.playerStats.Player;
 
 public class Damage {
     

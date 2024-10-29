@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.border.Border;
 
-import playerStats.Player;
+import characters.playerStats.Player;
 
 public class WeaponButton extends JButton {
 
