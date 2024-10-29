@@ -5,6 +5,7 @@ import characters.monsterStats.Monster;
 import characters.monsterStats.presetMonsters.Dragon;
 import characters.playerStats.Player;
 import combat.Combat;
+import misc_tools.CleanUp;
 
 public class Main {
 
@@ -22,6 +23,11 @@ public class Main {
         System.out.println("Started!");
 
         gui.print("Hello World! ");
+        gui.clear();
+
+        gui.chooseClass();
+
+
 
         Combat fight = new Combat(gui, toKill,toMurder);
         fight.fight();

@@ -24,6 +24,8 @@ public class GeneralGUI {
     private TextArea t = new TextArea("");
     private SwordBowButton sbB = new SwordBowButton();
 
+    
+
 
     private ConfigureFrame f = new ConfigureFrame(600,800);
     private ReadyButton r = new ReadyButton();
@@ -36,6 +38,7 @@ public class GeneralGUI {
         sbB.setBorder(BorderFactory.createLineBorder(Color.blue,5,true));
 
         p.add(t);
+
 
         p.add(sbB);
         p.add(r);
@@ -58,7 +61,7 @@ public class GeneralGUI {
 
 
         
-        
+        ClassPicker chooseClass = new ClassPicker(player, f);
 
     }
 
@@ -88,6 +91,10 @@ public class GeneralGUI {
     public void update(){
         phd.update();
         //ehd.update();
+    }
+
+    public void chooseClass(){
+
     }
     
 
