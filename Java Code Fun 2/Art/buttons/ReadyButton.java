@@ -8,13 +8,19 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
+import MainFolder.Main;
+import characters.playerStats.Player;
+
 public class ReadyButton extends JButton implements ActionListener {
     
     private boolean canBeClicked = false;
-    private volatile boolean clicked =false;
+    private boolean clicked =false;
+    private Player player;
 
-    public ReadyButton(){
+
+    public ReadyButton(Player player){
         super("Ready");
+        this.player=player;
         setOpaque(true);
 
         addActionListener(this);
@@ -42,9 +48,13 @@ public class ReadyButton extends JButton implements ActionListener {
             canBeClicked=false;
             System.out.println("Ready Button Clicked when Ready");
         setBackground(Color.DARK_GRAY);
+        Main.onwards();
         }
         else
         System.out.println("Ready Button clicked but not ready");
 
+
+
+            
     }
 }

@@ -4,38 +4,61 @@ package combat;
 
 import Art.GeneralGUI;
 import characters.monsterStats.*;
+import characters.monsterStats.presetMonsters.Dragon;
 import characters.playerStats.Player;
 import combat.damagePlus.Damage;
 import misc_tools.CleanUp;
 import misc_tools.FunnyText;
+import equipment.Tools.Armor;
+import equipment.Tools.Bow;
+import equipment.Tools.Swords;
 
 public class Combat {
     private GeneralGUI gui;
     private Player p1;
     private Monster e1;
     private Damage dealth;
+    private int event;
 
 
-
-    public Combat(GeneralGUI gui, Player p1, Monster e1)  {
+    public Combat(GeneralGUI gui, Player p1)  {
+        e1 = new Dragon(1); //will become a method of its own class to create the enemies.
         this.gui= gui;
         this.p1=p1;
-        this.e1=e1;
+
+        gui.update();
         
     }
 
     public void fight() {
+        if(event==0){
             System.out.println("Combat has started");
-            gui.enter();
-            gui.println("are you ready?");
             gui.prepare();
-            
-
-            waitTilReady();
-
-            gui.clear();
-            while(stillFighting())
+            gui.println("are you ready?");
+            event = 1;
+        }
+        else if (event == 1){
             brawl();
+            event++;
+            if(stillFighting())
+            {
+            gui.clear();
+            gui.print("Choose a weapon and click READY.");}
+        }
+        else if ((event >=2)&&(stillFighting())){
+            gui.clear();
+            dealth = pAttack();
+            gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+".");
+            event++;
+            if(stillFighting())
+            {
+            brawl();
+            gui.prepare();
+            }
+        }
+
+
+
 
 
         }
@@ -47,28 +70,23 @@ public class Combat {
             gui.print("The "+e1.getName()+" attacks you with a "+e1.getLastAttack()+" dealing "+dealth.dealDamage(p1)+" damage.");
             gui.update();
             if(stillFighting()){
-            CleanUp.safeSleep(1500);
             gui.clear();
-            gui.prepare();
-            gui.print("Click READY when ready.");
-            waitTilReady();
-            gui.clear();
+            
+            if(stillFighting()){gui.prepare();
+            gui.print("Click READY when ready.");}
+            
+            }
+
+/*gui.clear();
             dealth = pAttack();
 
-            gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+".");
-            }
-
-
+            gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+"."); */
 
 
         }
 
-        public synchronized void waitTilReady(){
-            while(!gui.getIsReady()){
-                CleanUp.safeSleep(1000);
-                
-            }
-        }
+        
+        
         public Damage pAttack(){
             if(gui.getSwordBow())
             return p1.swordAttack();
@@ -79,8 +97,6 @@ public class Combat {
             return p1.getHealth()>0 && e1.getHealth()>0;
         }
         
+        
 
-        }
-
-    
-
+    }

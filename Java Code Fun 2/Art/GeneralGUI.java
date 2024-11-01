@@ -15,6 +15,7 @@ import java.awt.LayoutManager2;
 import java.awt.Rectangle;
 import Art.TextArea;
 
+
 import javax.swing.*;
 /**@see notes This class is a container for general GUI stuff
  * @see notesCont to bring up GUI stuff instantiate a GeneralGUI object.
@@ -23,18 +24,21 @@ public class GeneralGUI {
 
     private TextArea t = new TextArea("");
     private SwordBowButton sbB = new SwordBowButton();
+    private Player player;
 
     
 
 
     private ConfigureFrame f = new ConfigureFrame(600,800);
-    private ReadyButton r = new ReadyButton();
+    private ReadyButton r;
     private JPanel p = new JPanel();
     private PlayerHealthDisplay phd;
     
     public GeneralGUI(Player player){
 
         phd = new PlayerHealthDisplay(player);
+        r = new ReadyButton(player);
+        this.player=player;
         sbB.setBorder(BorderFactory.createLineBorder(Color.blue,5,true));
 
         p.add(t);
@@ -46,7 +50,7 @@ public class GeneralGUI {
         p.setLayout(new BorderLayout());
         f.setContentPane(p);
         
-        f.setBackground(Color.BLUE);
+        f.setBackground(new Color(20,190,255));
         p.setBackground(new Color(190, 215, 250));
         
 
@@ -61,7 +65,6 @@ public class GeneralGUI {
 
 
         
-        ClassPicker chooseClass = new ClassPicker(player, f);
 
     }
 
@@ -93,9 +96,7 @@ public class GeneralGUI {
         //ehd.update();
     }
 
-    public void chooseClass(){
 
-    }
     
 
     

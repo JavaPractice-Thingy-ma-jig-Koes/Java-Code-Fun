@@ -69,8 +69,8 @@ public class Damage {
     public int dealDamage(Player toHurt){
         
         if(toHitChance>Math.random()*100){
-        if(toHurt.getPlayerArmorClass()-armorClassNegation<0) 
-        armorClassNegation=toHurt.getPlayerArmorClass();
+        if(toHurt.getArmorClass()-armorClassNegation<0) 
+        armorClassNegation=toHurt.getArmorClass();
        toHurt.takeDamage(damage+armorClassNegation); 
        return damage+armorClassNegation;
     }

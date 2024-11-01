@@ -7,7 +7,7 @@ public class Character {
     private int gold;
     private String name;
     private int maxHealth;
-
+    private int armorClass;
 
     
     public Character ()
@@ -17,6 +17,7 @@ public class Character {
         gold = 0;
         name = "";
         maxHealth = 9;
+        armorClass = 0;
     }
 
     public Character (int level)
@@ -26,6 +27,7 @@ public class Character {
         gold = level*10;
         name = "";
         maxHealth = healthPoints;
+        armorClass = level;
     }
     public Character (String name)
     {
@@ -34,6 +36,7 @@ public class Character {
         healthPoints = 0;
         gold = 0;
         maxHealth = healthPoints;
+        armorClass = 0;
     }
     public Character (String name, int level)
     {
@@ -42,14 +45,16 @@ public class Character {
         healthPoints = level*5;
         gold = level*10;
         maxHealth = healthPoints;
+        armorClass = level;
     }
-    public Character (String name, int level, int gold, int healthPoints) 
+    public Character (String name, int level, int gold, int healthPoints, int armorClass) 
     {
         this.name=name;
         this.level = level;
         this.gold = gold;
         this.healthPoints = healthPoints;
         maxHealth = healthPoints;
+        this.armorClass = armorClass;
     }
         /** @see quickDescription returns the character's current hitpoints*/
     public int getHealth()
@@ -86,16 +91,20 @@ public class Character {
     {
         healthPoints = maxHealth;
     }
-        /** @see quickDescription decreases the character's current hitpoints*/
 
-    public void takeDamage ( int damage)
-    {
-        if(damage>0)
-        healthPoints-=damage;
+        /** @see quickDescription decreases healthPoints by a given amount of damage. 
+     * @see ArmorClassReduction includes the damage reduction from the armor class */
+    public void takeDamage(int damage){
+        if(damage-armorClass>0){
+            healthPoints-=damage-armorClass;
+        }
     }
     public int getXpGiven ()
     {
         return level*5;
+    }
+    public int getArmorClass(){
+        return armorClass;
     }
 
 }

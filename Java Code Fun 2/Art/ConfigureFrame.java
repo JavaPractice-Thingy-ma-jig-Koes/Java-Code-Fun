@@ -36,7 +36,7 @@ add(b1);
 setVisible(true);
     }
     public ConfigureFrame(int height, int width, JButton b1, JButton b2){
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
         
@@ -48,8 +48,6 @@ setBounds(10,20,80,50);
 setBounds(100,20,80,50);
 
     }
-
-
 
     
 }

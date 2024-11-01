@@ -19,7 +19,7 @@ public class Player extends characters.Character {
     private int gold;
     private Swords meleeWeapon = new Swords("nothing", 0, 0, 0);
     private Armor armor = new Armor("clothes",0,0);
-    private Bow rangedWeapon = new Bow("nothing", 0, 0);
+    private Bow rangedWeapon = new Bow("nothing", 0, 0,0);
 
 
 
@@ -58,8 +58,8 @@ public class Player extends characters.Character {
 
     }
 */
-        public Player(int healthPoints, int gold, Swords meleeWeapon, Armor armor, Bow rangedWeapon)
-    {
+        public Player(String name, int healthPoints, int gold, Swords meleeWeapon, Armor armor, Bow rangedWeapon)
+    {super(name,healthPoints,gold,healthPoints,armor.getArmorClass());
         this.healthPoints = healthPoints;
 
         playerMaxHealth = healthPoints;
@@ -73,7 +73,7 @@ public class Player extends characters.Character {
         xp =0;
 
     }
-    public Player(){
+    public Player(){ super("",0,0,5,0);
         this.healthPoints = 5;
         this.gold=0;
         
@@ -87,6 +87,7 @@ public class Player extends characters.Character {
         public void equip (Armor other){
             this.armor=other;
         }
+
 /**@deprecated does not work with the new GUI */
         public void printInventory(){
 
@@ -102,7 +103,8 @@ public class Player extends characters.Character {
 
 
     /**@see quickDescription returns the player's armor class */
-    public int getPlayerArmorClass(){
+    @Override
+    public int getArmorClass(){
         return armor.getArmorClass();
     }
     /**@see quickDescription returns the player's melee damage. */
@@ -130,15 +132,35 @@ public class Player extends characters.Character {
     public Damage bowAttack(){
         return new Damage((int)(Math.random()*(rangedWeapon.getMaxRangedDamage()+1)),rangedWeapon.getName());
     }
-        /** @see quickDescription decreases healthPoints by a given amount of damage. 
-     * @see ArmorClassReduction includes the damage reduction from the armor class */
-    public void takeDamage(int damage){
-        if(damage-armor.getArmorClass()>0){
-            healthPoints-=damage-armor.getArmorClass();
+
+    public void issueEquipment(int index)
+        {
+        switch (index) {
+            case 1:
+            equip(new Armor("leather armor", 15, 3));
+            equip(new Bow("longbow", 20, 7,75));
+equip(new Swords ("rusty knife", 0, 1,2));
+
+                break;
+            
+            case 2:
+equip(new Armor ("robes", 10, 0));
+equip(new Bow ("magic missile", 30, 8,72));
+equip(new Swords ("acid splash", 25,4,7));
+                break;
+        
+            default:
+equip(new Armor ("plate armor", 24, 5));
+equip(new Bow ("tattered sling", 0,2,50));
+equip(new Swords ("steel sword", 15, 3, 6));
+                break;
+            }
+
         }
 
 
 
+
     
-}
+
 }
