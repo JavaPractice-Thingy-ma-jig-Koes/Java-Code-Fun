@@ -13,19 +13,19 @@ import javax.swing.border.LineBorder;
 
 import MainFolder.Main;
 import characters.playerStats.Player;
-import combat.Combat;
+
 
 
 public class ClassPicker implements ActionListener{
 
-    private Player player;
+
     private final String[] classes = {"Fighter","Ranger","Mage"};
     private JInternalFrame iF = new JInternalFrame("Choose a Class");
-    private JComboBox chooser = new JComboBox<>(classes);
+    private final JComboBox<String> chooser = new JComboBox<>(classes);
     private JButton done = new JButton("DONE");
     private JToolTip info = new JToolTip();
     private ConfigureFrame f = new ConfigureFrame(200, 300);
-    private Combat initCombat;
+
 
 
     public ClassPicker(Player player) 
@@ -39,7 +39,7 @@ public class ClassPicker implements ActionListener{
         iF.add(chooser);
         f.add(iF);
         iF.setVisible(true);
-        //iF.setLayer(iF, 2);
+
         iF.requestFocus();
 
         iF.setBackground(new Color (180,250,190));
@@ -59,7 +59,7 @@ public class ClassPicker implements ActionListener{
 
         iF.setVisible(true);
 
-        this.player= player;
+
         iF.add(done);
 
         info.setTipText("Fighters get a sword and shield. Rangers get a bow and armor. Mages get no armor, but dangerous spells.");

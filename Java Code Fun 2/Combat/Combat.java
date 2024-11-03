@@ -8,10 +8,7 @@ import characters.monsterStats.presetMonsters.Dragon;
 import characters.playerStats.Player;
 import combat.damagePlus.Damage;
 import misc_tools.CleanUp;
-import misc_tools.FunnyText;
-import equipment.Tools.Armor;
-import equipment.Tools.Bow;
-import equipment.Tools.Swords;
+
 
 public class Combat {
     private GeneralGUI gui;
@@ -22,7 +19,7 @@ public class Combat {
 
 
     public Combat(GeneralGUI gui, Player p1)  {
-        e1 = new Dragon(1); //will become a method of its own class to create the enemies.
+        e1 = new Dragon(3); //will become a method of its own class to create the enemies.
         this.gui= gui;
         this.p1=p1;
 
@@ -31,11 +28,16 @@ public class Combat {
     }
 
     public void fight() {
+        printHealths();
+        CleanUp.safeSleep(3000);
         if(event==0){
             System.out.println("Combat has started");
             gui.prepare();
             gui.println("are you ready?");
+            System.out.println("EVENT : "+event+ " waiting for initial READY press");
+
             event = 1;
+
         }
         else if (event == 1){
             brawl();
@@ -44,17 +46,17 @@ public class Combat {
             {
             gui.clear();
             gui.print("Choose a weapon and click READY.");}
+            System.out.println("Player is choosing a weapon");
+
         }
         else if ((event >=2)&&(stillFighting())){
             gui.clear();
             dealth = pAttack();
+            System.out.println("EVENT : "+event+ " Player is attacking");
             gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+".");
             event++;
-            if(stillFighting())
-            {
-            brawl();
-            gui.prepare();
-            }
+            if(stillFighting()) brawl();
+            if(stillFighting()) gui.prepare();
         }
 
 
@@ -66,15 +68,26 @@ public class Combat {
         public void brawl(){
             dealth=e1.attack();
             
-            
+            System.out.println("Enemy is attacking");
             gui.print("The "+e1.getName()+" attacks you with a "+e1.getLastAttack()+" dealing "+dealth.dealDamage(p1)+" damage.");
             gui.update();
             if(stillFighting()){
             gui.clear();
             
-            if(stillFighting()){gui.prepare();
-            gui.print("Click READY when ready.");}
+
+            gui.prepare();
+            gui.print("Click READY when ready.");
             
+            }
+            else{
+                gui.clear();
+                gui.print("Combat over");
+                if(p1.getHealth()<=0){
+                    System.out.println("Player lost");
+                }
+                else{
+                    System.out.println("Player won");
+                }
             }
 
 /*gui.clear();
@@ -97,6 +110,11 @@ public class Combat {
             return p1.getHealth()>0 && e1.getHealth()>0;
         }
         
-        
+        private void printHealths()
+        {
+            System.out.println("Event "+event);
+            System.out.println("Player Health : "+p1.getHealth());
+            System.out.println("Enemy Health : "+e1.getHealth());
+        }
 
     }

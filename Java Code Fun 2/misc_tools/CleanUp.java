@@ -1,8 +1,13 @@
 package misc_tools;
 
-import java.util.Timer;
+
 
 public class CleanUp {
+
+    private CleanUp()
+    {
+        throw new IllegalStateException("Utility Class, should not be instantiated");
+    }
     /**@see erases all text from the console */
     public static void clearScreen(){
         System.out.print(" \033[H\033[2J");

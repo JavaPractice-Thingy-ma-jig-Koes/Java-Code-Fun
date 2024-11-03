@@ -1,13 +1,14 @@
 package misc_tools;
 
-import misc_tools.Convert;
+
 
 public class FunnyPrint {
+
 
     
     private String defaultColor = "black";
     private int defaultTime = 0;
-    private int staggerTime =0;
+    
 
     public FunnyPrint (String defaultColor, int defaultTime) throws Exception
     {
@@ -29,6 +30,7 @@ public class FunnyPrint {
 
     public void stagPrint(String info, int stagTime, boolean isBackground) throws Exception
     {
+        int staggerTime =0;
 
         staggerTime=stagTime;
 

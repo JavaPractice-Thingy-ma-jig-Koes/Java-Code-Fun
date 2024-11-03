@@ -10,7 +10,7 @@ public class Dragon extends Monster {
     private double[] moveWeights = {12.5,30,12.5,25,15,5};
     private int lastAttack = -1;
     private int level;
-    private boolean isPresent;
+    private boolean isPresent = true;
     private final String[] moveList = {"wing","claw swipe","double claw attack","tail whack", "breath attack","majestic beauty"};
 
     public Dragon(int level) {
@@ -36,8 +36,7 @@ public class Dragon extends Monster {
                 
                 break;
         }
-        Damage temp = new Damage(findDamage(),acNeg,getLastAttack(),false);
-        return temp;
+        return new Damage(findDamage(),acNeg,getLastAttack(),false);
     }
     private int findDamage()
     {
@@ -65,11 +64,11 @@ public class Dragon extends Monster {
         }
         
 }
-
+/* 
     public String getLastAttack(){
         return moveList[lastAttack];
     }
     public int getLastAttackNum(){return lastAttack;}
-    
+    */
 
 }
