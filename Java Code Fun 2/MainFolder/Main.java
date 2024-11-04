@@ -10,7 +10,7 @@ public class Main {
 
     private static int event;
 
-    private static Player toKill = new Player();
+    private static Player toKill = new Player( 10, 5);
     private static GeneralGUI gui = new GeneralGUI(toKill);
     private static Combat scuffle = new Combat(gui, toKill);
 
@@ -18,13 +18,15 @@ public class Main {
     public static void main(String[] args)  {
 
 
+        System.out.println("\u001b[46m"+"Started!"+"\u001b[0m");
 
-        System.out.println("Started!");
+
+
 
         gui.print("Hello World! ");
         gui.clear();
 
-        ClassPicker chooseClass = new ClassPicker(toKill);
+        ClassPicker.chooseClass();
 
     }
 
