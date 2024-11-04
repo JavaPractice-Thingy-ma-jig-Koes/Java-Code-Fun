@@ -107,4 +107,29 @@ public class Character {
         return armorClass;
     }
 
+
+    protected void setArmorClass(int armorClass)
+    {
+        if(armorClass>=0)
+        this.armorClass = armorClass;
+        else
+        throw new IllegalArgumentException("ArmorClass cannot be negative");
+    }
+
+    protected void setMaxHealth(int newMaxHealth)
+    {
+        if(newMaxHealth>=1){
+            healthPoints+=newMaxHealth-maxHealth;
+            maxHealth=newMaxHealth;
+        }
+        else
+        throw new IllegalArgumentException("newMaxHealth cannot be less than 1");
+    }
+    protected void setName(String name)
+    {
+        if(name!=null)
+        this.name = name;
+
+    }
+
 }

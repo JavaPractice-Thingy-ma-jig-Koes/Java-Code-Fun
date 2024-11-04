@@ -64,11 +64,13 @@ public class Dragon extends Monster {
         }
         
 }
-/* 
+//TO DO - utilize these methods in the parent class Monster.java
+@Override
     public String getLastAttack(){
         return moveList[lastAttack];
     }
+    @Override
     public int getLastAttackNum(){return lastAttack;}
-    */
+    
 
 }

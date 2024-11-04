@@ -6,42 +6,61 @@ import combat.damagePlus.Damage;
 
 public class Monster extends characters.Character {
     
-    private int healthPoints;
-    private int armorClass;
-    private int level;
+
+
+    private Integer level;
     private int meleeDamage;
     private int maxRangedDamage;
-    private int maxHealthPoints;
+
     private boolean isPresent;
     private int lastAttack;
-    private String name;
-    private final String[] moveList = {"melee attack", "ranged attack"};
+
+    private String[] moveList = {"melee attack", "ranged attack"};
 
 
     public Monster (int healthPoints, int armorClass, int meleeDamage, int maxRangedDamage, String name) {
-        this.healthPoints=healthPoints;
-        this.armorClass=armorClass;
-        this.name = name;
+        super(name,(healthPoints/2+armorClass*2+meleeDamage+maxRangedDamage)/10,(healthPoints/2+armorClass*2+meleeDamage+maxRangedDamage)/2,healthPoints,armorClass);
+
+
+
 
 
         this.meleeDamage=meleeDamage;
         this.maxRangedDamage=maxRangedDamage;
-        this.maxHealthPoints=healthPoints;
-        this.level = (healthPoints/2+armorClass*2+meleeDamage+maxRangedDamage)/10;
+
+
         
     }
     public Monster (int level){
+        super("monster",level);
         int randomModifier = RNG.RIG(2,4);
-        this.level = level;
-        this.name = "monster";
+
+
         if(RNG.RBG()){
-        this.healthPoints= (int)Math.pow(randomModifier, level);
-        this.armorClass = level;
+        setMaxHealth((int)Math.pow(randomModifier, level));
+        setArmorClass(level);
         }
         else{
-            this.healthPoints = level*randomModifier;
-            this.armorClass = level+randomModifier+1;
+        setMaxHealth(level*randomModifier);
+        setMaxHealth(level+randomModifier+1);
         }
+    }
+        public Monster (int level, String[] moveList){
+            super("monster",level);
+            int randomModifier = RNG.RIG(2,4);
+    
+    
+            if(RNG.RBG()){
+            setMaxHealth((int)Math.pow(randomModifier, level));
+            setArmorClass(level);
+            }
+            else{
+            setMaxHealth(level*randomModifier);
+            setMaxHealth(level+randomModifier+1);
+            }
+            this.moveList=moveList;
+        
+
 
 
 
@@ -55,10 +74,7 @@ public class Monster extends characters.Character {
     }
 
      //return methods
-    /**@see quickDescription returns the Monster's armor class */
-    public int getMonsterArmorClass(){
-        return armorClass;
-    }
+
     /**@see quickDescription returns the Monster's melee damage. */
     public int getMonsterMeleeDamage(){
         return meleeDamage;
@@ -68,18 +84,10 @@ public class Monster extends characters.Character {
         return maxRangedDamage;
     }
 
-    /** @see quickDescription decreases healthPoints by a given amount of damage. 
-     * @see ArmorClassReduction includes the damage reduction from the armor class */
-    public void takeDamage(int damage){
-        if(armorClass-damage<0){
-            healthPoints-=damage-armorClass;
-        }
 
-}
 
-    public void setName(String newName){
-        if(newName!=null) name = ""+newName;
-    }
+
+
 public int countDamage(boolean meleeOrRange){
     if(meleeOrRange){
         return (RNG.RIG(meleeDamage,meleeDamage+level));
@@ -93,7 +101,6 @@ public String getLastAttack(){
     return moveList[lastAttack];
 }
 public int getLastAttackNum(){return lastAttack;}
-
 
 
 

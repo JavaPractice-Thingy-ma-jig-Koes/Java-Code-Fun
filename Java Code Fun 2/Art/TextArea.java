@@ -8,6 +8,8 @@ public class TextArea extends JTextArea {
     
     public TextArea(String txt){
         super(txt);
+        setLineWrap(true);
+        setWrapStyleWord(true);
 
         this.setEditable(false);
 
@@ -23,11 +25,7 @@ public class TextArea extends JTextArea {
             setText(getText()+info.substring(info.length()-length,info.length()-length+1));
             if(getText().length()>60){setAutoscrolls(true);}
             else{setAutoscrolls(false);}
-            try {
-                Thread.sleep(75);
-            } catch (Exception e) {
-                System.out.println("Error in waiting to set label text");
-            }
+
             
 
         }
