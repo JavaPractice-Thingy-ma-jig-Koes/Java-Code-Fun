@@ -13,7 +13,7 @@ import characters.playerStats.Player;
 
 public class ReadyButton extends JButton implements ActionListener {
     
-    private boolean canBeClicked = false;
+
     private boolean clicked =false;
     private Player player;
 
@@ -26,14 +26,16 @@ public class ReadyButton extends JButton implements ActionListener {
         addActionListener(this);
         setBorder(new LineBorder(Color.black,3, true) );
         setBackground(Color.DARK_GRAY);
+        setPreferredSize(getSize());
     }
 
     public void prepare(){
         setBackground(Color.LIGHT_GRAY);
-        canBeClicked=true;
+        setEnabled(true);
+
     }
     public boolean getIsReady(){
-        if(!canBeClicked&&clicked){
+        if(!isEnabled()&&clicked){
             clicked=false;
             return true;
         }
@@ -43,15 +45,13 @@ public class ReadyButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(canBeClicked){
+            setEnabled(false);
             clicked =true;
-            canBeClicked=false;
+
             System.out.println("Ready Button Clicked when Ready");
         setBackground(Color.DARK_GRAY);
+            
         Main.onwards();
-        }
-        else
-        System.out.println("Ready Button clicked but not ready");
 
 
 
