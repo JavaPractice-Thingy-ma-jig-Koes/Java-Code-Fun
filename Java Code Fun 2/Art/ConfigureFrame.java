@@ -10,7 +10,7 @@ public class ConfigureFrame extends JFrame {
     
     
     public ConfigureFrame(int height, int width){
-
+        setLocationRelativeTo(null);
         
 setSize(height,width);
 setVisible(true);
@@ -19,7 +19,7 @@ setVisible(true);
     public ConfigureFrame(int height, int width, boolean isVisible){
         JFrame frame = this.frame;
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setLocationRelativeTo(null);
         
 setSize(height,width);
 setVisible(isVisible);
@@ -27,7 +27,7 @@ setVisible(isVisible);
     }
     public ConfigureFrame(int height, int width, JButton b1){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setLocationRelativeTo(null);
 
         
 setSize(height,width);
@@ -37,7 +37,7 @@ setVisible(true);
     }
     public ConfigureFrame(int height, int width, JButton b1, JButton b2){
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        setLocationRelativeTo(null);
 
         
 setSize(height,width);
