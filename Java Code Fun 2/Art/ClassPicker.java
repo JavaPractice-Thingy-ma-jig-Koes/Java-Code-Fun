@@ -1,6 +1,6 @@
 package Art;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -12,28 +12,28 @@ import javax.swing.JToolTip;
 import javax.swing.border.LineBorder;
 
 import MainFolder.Main;
-import characters.playerStats.Player;
+
 
 
 
 public class ClassPicker implements ActionListener{
 
 
-    private final String[] classes = {"Fighter","Ranger","Mage"};
-    private JInternalFrame iF = new JInternalFrame("Choose a Class");
-    private final JComboBox<String> chooser = new JComboBox<>(classes);
-    private JButton done = new JButton("DONE");
-    private JToolTip info = new JToolTip();
-    private ConfigureFrame f = new ConfigureFrame(200, 300);
+    private static final String[] classes = {"Fighter","Ranger","Mage"};
+    private static JInternalFrame iF = new JInternalFrame("Choose a Class");
+    private static final JComboBox<String> chooser = new JComboBox<>(classes);
+    private static JButton done = new JButton("DONE");
+    private static JToolTip info = new JToolTip();
+    private static ConfigureFrame f = new ConfigureFrame(200, 300);
 
 
 
-    public ClassPicker(Player player) 
+    public static void chooseClass() 
     {
 
         f.setTitle("Choose a Class");
 
-        done.addActionListener(this);
+        done.addActionListener(new ClassPicker());
         iF.setBounds(50,50, 200,90);
         chooser.setSelectedIndex(0);
         iF.add(chooser);
@@ -80,7 +80,9 @@ public class ClassPicker implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         int x = chooser.getSelectedIndex();
         System.out.println("Class chosen - commencing adventure");
+        System.out.println("The player chose to be a "+classes[x]);
         close();
+
         Main.commenceAdventure(x);
 
         }
