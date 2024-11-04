@@ -73,6 +73,15 @@ public class Player extends characters.Character {
         xp =0;
 
     }
+    public Player(String name, int healthPoints, int gold){
+        super(name,0,gold,healthPoints,0);
+    }
+    public Player(int healthPoints, int gold){
+        super("", 0,gold,healthPoints,0);
+    }
+    public Player(int healthPoints){
+        super("",0,0,healthPoints,0);
+    }
     public Player(){ super("",0,0,5,0);
         this.healthPoints = 5;
         this.gold=0;
@@ -100,7 +109,15 @@ public class Player extends characters.Character {
 
         }
 
-
+        public Bow getRanged(){
+            return rangedWeapon;
+        }
+        public Swords getSwords(){
+            return meleeWeapon;
+        }
+        public Armor getArmor(){
+            return armor;
+        }
 
     /**@see quickDescription returns the player's armor class */
     @Override

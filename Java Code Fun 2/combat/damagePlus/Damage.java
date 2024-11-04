@@ -79,7 +79,7 @@ public class Damage {
 /**@see note already deals the damage. It just returns the amount (ish) of damage dealt */
     public int dealDamage(Monster toHurt){
         if(toHitChance>=Math.random()*100){
-            if(toHurt.getMonsterArmorClass()-armorClassNegation<0) armorClassNegation=toHurt.getMonsterArmorClass();
+            if(toHurt.getArmorClass()-armorClassNegation<0) armorClassNegation=toHurt.getArmorClass();
            toHurt.takeDamage(damage+armorClassNegation); 
            return damage+armorClassNegation;
         }

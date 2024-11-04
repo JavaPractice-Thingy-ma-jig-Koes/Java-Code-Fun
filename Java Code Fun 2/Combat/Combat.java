@@ -8,6 +8,7 @@ import characters.monsterStats.presetMonsters.Dragon;
 import characters.playerStats.Player;
 import combat.damagePlus.Damage;
 import misc_tools.CleanUp;
+import misc_tools.RNG;
 
 
 public class Combat {
@@ -19,7 +20,7 @@ public class Combat {
 
 
     public Combat(GeneralGUI gui, Player p1)  {
-        e1 = new Dragon(3); //will become a method of its own class to create the enemies.
+        e1 = new Dragon(1); //will become a method of its own class to create the enemies.
         this.gui= gui;
         this.p1=p1;
 
@@ -40,24 +41,40 @@ public class Combat {
 
         }
         else if (event == 1){
-            brawl();
+            if(RNG.RBG()){
+                brawl();
+            }
             event++;
             if(stillFighting())
             {
+                System.out.println("Player is choosing a weapon");
             gui.clear();
-            gui.print("Choose a weapon and click READY.");}
-            System.out.println("Player is choosing a weapon");
+            gui.print("Choose a weapon and click READY.");
+            }
+            gui.prepare();
 
         }
         else if ((event >=2)&&(stillFighting())){
             gui.clear();
             dealth = pAttack();
             System.out.println("EVENT : "+event+ " Player is attacking");
-            gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+".");
+            gui.print("You attack and deal "+dealth.dealDamage(e1)+" damage to the enemy with your "+dealth.getDamageSource()+". ");
             event++;
             if(stillFighting()) brawl();
             if(stillFighting()) gui.prepare();
         }
+        if(!stillFighting()){
+
+                gui.clear();
+                gui.print("Combat over");
+                if(p1.getHealth()<=0){
+                    System.out.println("Player lost");
+                }
+                else{
+                    System.out.println("Player won");
+                }
+            }
+        
 
 
 
@@ -69,26 +86,13 @@ public class Combat {
             dealth=e1.attack();
             
             System.out.println("Enemy is attacking");
-            gui.print("The "+e1.getName()+" attacks you with a "+e1.getLastAttack()+" dealing "+dealth.dealDamage(p1)+" damage.");
+            gui.print("The "+e1.getName()+" attacks you with a "+e1.getLastAttack()+" dealing "+dealth.dealDamage(p1)+" damage. ");
             gui.update();
             if(stillFighting()){
-            gui.clear();
-            
-
             gui.prepare();
-            gui.print("Click READY when ready.");
-            
+            gui.print("Click READY when ready. ");
             }
-            else{
-                gui.clear();
-                gui.print("Combat over");
-                if(p1.getHealth()<=0){
-                    System.out.println("Player lost");
-                }
-                else{
-                    System.out.println("Player won");
-                }
-            }
+
 
 /*gui.clear();
             dealth = pAttack();
@@ -106,7 +110,7 @@ public class Combat {
             return p1.bowAttack();
         }
         public boolean stillFighting(){
-
+            System.out.println("Event : "+event+" - Still Fighting");
             return p1.getHealth()>0 && e1.getHealth()>0;
         }
         
