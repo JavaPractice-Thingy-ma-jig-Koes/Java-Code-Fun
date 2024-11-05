@@ -26,7 +26,7 @@ setVisible(isVisible);
 
     }
     public ConfigureFrame(int height, int width, JButton b1){
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         

@@ -1,6 +1,7 @@
 package Art.buttons;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +21,7 @@ public class ReadyButton extends JButton implements ActionListener {
 
     public ReadyButton(Player player){
         super("Ready");
+        setPreferredSize(new Dimension(80,30));
         this.player=player;
         setOpaque(true);
 

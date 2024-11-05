@@ -5,10 +5,11 @@ import Art.buttons.SwordBowButton;
 import Art.labels.healthDisplays.PlayerHealthDisplay;
 import characters.playerStats.Player;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Dimension;
+
+
+
+
+import java.awt.*;
 import javax.swing.*;
 /**@see notes This class is a container for general GUI stuff
  * @see notesCont to bring up GUI stuff instantiate a GeneralGUI object.
@@ -26,42 +27,44 @@ public class GeneralGUI {
     private ReadyButton r;
     private JPanel p = new JPanel();
     private PlayerHealthDisplay phd;
+    private Dimension butt =new Dimension(80,30);
     
     public GeneralGUI(Player player){
+        f.setLayout(new BorderLayout());
+        p.setLayout(new FlowLayout());
         sbB= new SwordBowButton(player,this);
         phd = new PlayerHealthDisplay(player);
         r = new ReadyButton(player);
         this.player=player;
         sbB.setBorder(BorderFactory.createLineBorder(Color.blue,5,true));
         f.setTitle("Java Code Fun");
-
+        r.setPreferredSize(butt);
         p.add(t);
 
-        p.setLayout(new FlowLayout());
+        
         p.add(sbB);
         p.add(r);
         p.add(phd);
-        p.setLayout(new BorderLayout());
-        f.setContentPane(p);
+
+        f.add(p,BorderLayout.CENTER);
 
         f.setBackground(new Color(20,190,255));
         p.setBackground(new Color(190, 215, 250));
         
 
-        t.setBounds(20,20,f.getWidth()-40,50);
-        t.setPreferredSize(t.getSize());
 
-        r.setBounds(120,80,80,30);
-        r.setPreferredSize(r.getSize());
+    
+        t.setPreferredSize(new Dimension(1200,50));
+
+
 
         
-        sbB.setBounds(20,80,80,30);
-        sbB.setPreferredSize(sbB.getSize());
-        phd.setBounds(50,100+sbB.getHeight(),200,20);
-        phd.setPreferredSize(phd.getSize());
-        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        f.setPreferredSize(f.getSize());
-        p.setPreferredSize(p.getSize());
+
+        sbB.setPreferredSize(butt);
+
+        phd.setPreferredSize(new Dimension(200,20));
+        //f.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
 
         f.pack();
 
