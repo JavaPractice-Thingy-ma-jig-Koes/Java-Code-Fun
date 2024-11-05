@@ -2,6 +2,8 @@ package Art.buttons;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,13 +13,15 @@ import javax.swing.border.Border;
 
 import characters.playerStats.Player;
 
-public class WeaponButton extends JButton {
+public class WeaponButton extends BaseButton {
 
 
     
         private boolean bowOrSword = false;
         private JButton weapon = new JButton();
         private boolean isGreen = false;
+
+
 
         public WeaponButton(){
 
@@ -84,6 +88,8 @@ public class WeaponButton extends JButton {
             //weapon.setMinimumSize(new Dimension(10,10));
             //weapon.setSize(75,40);
         }
+
+
 
         }
     

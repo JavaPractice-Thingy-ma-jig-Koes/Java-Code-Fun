@@ -12,7 +12,7 @@ import javax.swing.border.LineBorder;
 import MainFolder.Main;
 import characters.playerStats.Player;
 
-public class ReadyButton extends JButton implements ActionListener {
+public class ReadyButton extends BaseButton implements ActionListener {
     
 
     private boolean clicked =false;

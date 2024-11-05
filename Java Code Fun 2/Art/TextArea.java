@@ -11,7 +11,7 @@ public class TextArea extends JTextArea {
         setLineWrap(true);
         setWrapStyleWord(true);
 
-        this.setEditable(false);
+        this.setEnabled(false);
 
 
     }

@@ -23,14 +23,16 @@ public class Main {
 
 
 
-        gui.print("Hello World! ");
-        gui.clear();
+        gui.print("Please Choose a Class");
 
-        ClassPicker.chooseClass();
+        gui.chooseClass();
+
+
 
     }
 
     public static void onwards(){
+        gui.clear();
         switch (event) {
             case 0:
                 scuffle.fight();
@@ -48,6 +50,8 @@ public class Main {
     {
         toKill.issueEquipment(classNum);
         event = 0;
+
+        gui.setPvis(true);
         onwards();
     }
     
