@@ -50,14 +50,16 @@ public class GeneralGUI {
         sbB.setPreferredSize(butt);
 
 
+        mainPane.add("Stats",new JLabel("unfinished"));
+        mainPane.add("TBD",new JLabel("unfinished"));
+        mainPane.setEnabledAt(mainPane.indexOfTab("TBD"),false);
         
-        
 
 
 
 
 
-        mainPane.setBorder(BorderFactory.createEtchedBorder(Color.BLUE,Color.CYAN));
+        mainPane.setBorder(BorderFactory.createEtchedBorder(new Color(5,5,10),new Color(10,15,25)));
         mainPane.add("Combat",combatPane);
 
         mainPane.setPreferredSize(new Dimension(800,700));
