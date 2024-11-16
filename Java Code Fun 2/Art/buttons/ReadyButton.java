@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,7 +32,7 @@ public class ReadyButton extends BaseButton implements ActionListener {
             //super("Ready",new Color(140,140,140));
 
         this.player=player;
-        setOpaque(true);
+        setOpaque(false);
 
         addActionListener(this);
         //setBorder(new LineBorder(Color.black,3, true) );
@@ -40,6 +41,11 @@ public class ReadyButton extends BaseButton implements ActionListener {
         setPreferredSize(base);
 
         setMaximumSize(base);
+    setBorderPainted(false);
+    setBorder(null);
+    setFocusable(false);
+    setMargin(new Insets(0, 0, 0, 0));
+    setContentAreaFilled(false);
     }
     @Override
     public void paintComponent(Graphics g)

@@ -6,6 +6,7 @@ import Art.ClassPicker;
 import Art.GeneralGUI;
 import characters.playerStats.Player;
 import combat.Combat;
+import misc_tools.ColorPrint;
 
 
 public class Main {
@@ -20,9 +21,9 @@ public class Main {
     public static void main(String[] args)  {
 
 
-        System.out.println("\u001b[46m"+"Started!"+"\u001b[0m");
+        ColorPrint.print("Started",46);
 
-        System.out.println("\u001b[42m"+new File("").getAbsolutePath()+"\u001b[0m");
+        ColorPrint.print(new File("").getAbsolutePath(),35);
 
 
         gui.print("Please Choose a Class");

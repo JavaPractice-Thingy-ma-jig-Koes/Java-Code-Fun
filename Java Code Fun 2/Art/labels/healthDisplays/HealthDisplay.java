@@ -35,7 +35,7 @@ public class HealthDisplay extends JLabel {
 
     }
     public void update(){
-       // setText("Player Hit Points : "+player.getHealth());
+        setText("Player Hit Points : "+player.getHealth());
         System.out.println("New" + player.getClass() + "Health : "+player.getHealth()+".");
         
 
