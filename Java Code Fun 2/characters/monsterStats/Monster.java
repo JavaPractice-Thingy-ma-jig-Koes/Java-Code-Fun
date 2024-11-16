@@ -4,7 +4,7 @@ import misc_tools.RNG;
 import characters.playerStats.Player;
 import combat.damagePlus.Damage;
 
-public class Monster extends characters.Character {
+public class Monster extends characters.Characters {
     
 
 

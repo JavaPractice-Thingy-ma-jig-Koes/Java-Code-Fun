@@ -8,81 +8,82 @@ import java.util.HashMap;
 import characters.monsterStats.Monster;
 import combat.damagePlus.Damage;
 
-public class Player extends characters.Character {
+public class Player extends characters.Characters {
     
     private int healthPoints;
-    //private int armorClass;
-    //private int meleeDamage;
-    //private int rangedDamgeMax;
-    private int playerMaxHealth;
-    private int xp;
-    private int gold;
-    private Swords meleeWeapon = new Swords("nothing", 0, 0, 0);
-    private Armor armor = new Armor("clothes",0,0);
-    private Bow rangedWeapon = new Bow("nothing", 0, 0,0);
-
-
-
-/* 
-    public Player(int healthPoints, int meleeDamage, int rangedDamgeMax, int gold)
-    {
-        this.healthPoints = healthPoints;
-        this.meleeDamage = meleeDamage;
-        this.rangedDamgeMax = rangedDamgeMax;
-        playerMaxHealth = healthPoints;
-        this.gold = gold;
-        HashMap<String,Item> equipment = new HashMap<>();
-        equipment.put("armor",null);
-        equipment.put("sword",null);
-        //equipment.put("potion",null);
-        
-        
-        xp =0;
-
-    }
-
-    public Player(int healthPoints, int gold)
-    {
-        this.healthPoints = healthPoints;
-        this.meleeDamage = 0;
-        this.rangedDamgeMax = 0;
-        playerMaxHealth = healthPoints;
-        this.gold = gold;
-        HashMap<String,Item> equipment = new HashMap<>();
-        equipment.put("armor",null);
-        equipment.put("sword",null);
-        equipment.put("bow",null);
-        
-        
-        xp =0;
-
-    }
-*/
-        public Player(String name, int healthPoints, int gold, Swords meleeWeapon, Armor armor, Bow rangedWeapon)
-    {super(name,healthPoints,gold,healthPoints,armor.getArmorClass());
-        this.healthPoints = healthPoints;
-
-        playerMaxHealth = healthPoints;
-        this.gold = gold;
-        this.meleeWeapon=meleeWeapon;
-        this.armor=armor;
-        this.rangedWeapon=rangedWeapon;
-
-        
-        
-        xp =0;
-
-    }
-    public Player(String name, int healthPoints, int gold){
-        super(name,0,gold,healthPoints,0);
-    }
-    public Player(int healthPoints, int gold){
-        super("", 0,gold,healthPoints,0);
+    private static final String p = "Player";
+        //private int armorClass;
+        //private int meleeDamage;
+        //private int rangedDamgeMax;
+        private int playerMaxHealth;
+        private int xp;
+        private int gold;
+        private Swords meleeWeapon = new Swords("nothing", 0, 0, 0);
+        private Armor armor = new Armor("clothes",0,0);
+        private Bow rangedWeapon = new Bow("nothing", 0, 0,0);
+    
+    
+    
+    /* 
+        public Player(int healthPoints, int meleeDamage, int rangedDamgeMax, int gold)
+        {
+            this.healthPoints = healthPoints;
+            this.meleeDamage = meleeDamage;
+            this.rangedDamgeMax = rangedDamgeMax;
+            playerMaxHealth = healthPoints;
+            this.gold = gold;
+            HashMap<String,Item> equipment = new HashMap<>();
+            equipment.put("armor",null);
+            equipment.put("sword",null);
+            //equipment.put("potion",null);
+            
+            
+            xp =0;
+    
+        }
+    
+        public Player(int healthPoints, int gold)
+        {
+            this.healthPoints = healthPoints;
+            this.meleeDamage = 0;
+            this.rangedDamgeMax = 0;
+            playerMaxHealth = healthPoints;
+            this.gold = gold;
+            HashMap<String,Item> equipment = new HashMap<>();
+            equipment.put("armor",null);
+            equipment.put("sword",null);
+            equipment.put("bow",null);
+            
+            
+            xp =0;
+    
+        }
+    */
+            public Player(String name, int healthPoints, int gold, Swords meleeWeapon, Armor armor, Bow rangedWeapon)
+        {super(name,healthPoints,gold,healthPoints,armor.getArmorClass());
+            this.healthPoints = healthPoints;
+    
+            playerMaxHealth = healthPoints;
+            this.gold = gold;
+            this.meleeWeapon=meleeWeapon;
+            this.armor=armor;
+            this.rangedWeapon=rangedWeapon;
+    
+            
+            
+            xp =0;
+    
+        }
+        public Player(String name, int healthPoints, int gold){
+            super(name,0,gold,healthPoints,0);
+        }
+        public Player(int healthPoints, int gold){
+            super(p, 0,gold,healthPoints,0);
     }
     public Player(int healthPoints){
-        super("",0,0,healthPoints,0);
+        super(p,0,0,healthPoints,0);
     }
-    public Player(){ super("",0,0,5,0);
+    public Player(){ super(p,0,0,5,0);
         this.healthPoints = 5;
         this.gold=0;
         

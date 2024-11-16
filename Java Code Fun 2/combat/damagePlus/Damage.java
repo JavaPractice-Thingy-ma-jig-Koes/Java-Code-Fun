@@ -1,5 +1,6 @@
 package combat.damagePlus;
 
+import characters.Characters;
 import characters.monsterStats.Monster;
 import characters.playerStats.Player;
 
@@ -66,18 +67,9 @@ public class Damage {
         toHitChance=100;
         damageSource="none";
     }
-    public int dealDamage(Player toHurt){
-        
-        if(toHitChance>Math.random()*100){
-        if(toHurt.getArmorClass()-armorClassNegation<0) 
-        armorClassNegation=toHurt.getArmorClass();
-       toHurt.takeDamage(damage+armorClassNegation); 
-       return damage+armorClassNegation;
-    }
-    return 0;
-}
+
 /**@see note already deals the damage. It just returns the amount (ish) of damage dealt */
-    public int dealDamage(Monster toHurt){
+    public int dealDamage(Characters toHurt){
         if(toHitChance>=Math.random()*100){
             if(toHurt.getArmorClass()-armorClassNegation<0) armorClassNegation=toHurt.getArmorClass();
            toHurt.takeDamage(damage+armorClassNegation); 

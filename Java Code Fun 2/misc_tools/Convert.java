@@ -2,7 +2,7 @@ package misc_tools;
 
 public class Convert {
     
-     static int getColor(String color) throws Exception{
+     private static int getColor(String color) throws Exception{
         color = color.toUpperCase();
         //green
         if(color.contains("GREEN")){return 32;}

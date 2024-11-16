@@ -2,7 +2,7 @@ package Art;
 
 import Art.buttons.ReadyButton;
 import Art.buttons.SwordBowButton;
-import Art.labels.healthDisplays.PlayerHealthDisplay;
+import Art.labels.healthDisplays.HealthDisplay;
 import characters.playerStats.Player;
 
 
@@ -28,7 +28,7 @@ public class GeneralGUI {
     private JTabbedPane mainPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.WRAP_TAB_LAYOUT);
     private JPanel combatPane = new JPanel();
     private JPanel centerPanel = new JPanel();
-    private PlayerHealthDisplay phd;
+    private HealthDisplay phd;
     private Dimension butt =new Dimension(80,30);
     
 
@@ -37,7 +37,7 @@ public class GeneralGUI {
 
 
         sbB= new SwordBowButton(player,this);
-        phd = new PlayerHealthDisplay(player);
+        phd = new HealthDisplay(player);
         r = new ReadyButton(player);
         //this.player=player;
         setLayouts();
@@ -53,9 +53,6 @@ public class GeneralGUI {
         mainPane.add("Stats",new JLabel("unfinished"));
         mainPane.add("TBD",new JLabel("unfinished"));
         mainPane.setEnabledAt(mainPane.indexOfTab("TBD"),false);
-        
-
-
 
 
 
@@ -72,6 +69,7 @@ public class GeneralGUI {
 
 
         makeViewable();
+        f.pack();
     }
 
     private void setLayouts(){
@@ -128,7 +126,7 @@ public class GeneralGUI {
     }
     public void update(){
         phd.update();
-
+        f.pack();
         //ehd.update();
     }
     public void chooseClass()

@@ -11,9 +11,9 @@ public class Bow extends Item {
         super(name, value); //?
         this.maxRangedDamage = Math.abs(maxRangedDamage);
         this.toHitChance= Math.abs(toHitChance);
-        while(toHitChance>1){
-            toHitChance/=10;
-        }
+        //while(toHitChance>1){
+        //    toHitChance/=10;
+        //}
 
     }
         /**@see quickDescription returns the maximum damage value of the bow */

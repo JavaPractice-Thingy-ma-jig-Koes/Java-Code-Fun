@@ -1,6 +1,6 @@
 package characters;
 
-public class Character {
+public class Characters {
 
     private int healthPoints;
     private int level;
@@ -10,7 +10,7 @@ public class Character {
     private int armorClass;
 
     
-    public Character ()
+    public Characters ()
     {
         healthPoints = 0;
         level = 0;
@@ -20,7 +20,7 @@ public class Character {
         armorClass = 0;
     }
 
-    public Character (int level)
+    public Characters (int level)
     {
         this.level=level;
         healthPoints=level*5;
@@ -29,7 +29,7 @@ public class Character {
         maxHealth = healthPoints;
         armorClass = level;
     }
-    public Character (String name)
+    public Characters (String name)
     {
         this.name = name;
         level = 0;
@@ -38,7 +38,7 @@ public class Character {
         maxHealth = healthPoints;
         armorClass = 0;
     }
-    public Character (String name, int level)
+    public Characters (String name, int level)
     {
         this.name = name;
         this.level = level;
@@ -47,7 +47,7 @@ public class Character {
         maxHealth = healthPoints;
         armorClass = level;
     }
-    public Character (String name, int level, int gold, int healthPoints, int armorClass) 
+    public Characters (String name, int level, int gold, int healthPoints, int armorClass) 
     {
         this.name=name;
         this.level = level;
@@ -95,8 +95,8 @@ public class Character {
         /** @see quickDescription decreases healthPoints by a given amount of damage. 
      * @see ArmorClassReduction includes the damage reduction from the armor class */
     public void takeDamage(int damage){
-        if(damage-armorClass>0){
-            healthPoints-=damage-armorClass;
+        if(damage-getArmorClass()>0){
+            healthPoints-=damage-getArmorClass();
         }
     }
     public int getXpGiven ()

@@ -13,6 +13,7 @@ public class BaseButton extends JButton{
     private boolean isGradient;
     private Color colorGradient;
     public BaseButton(){super();}
+    public BaseButton(Icon icon){super (icon);}
     public BaseButton(String info){super(info);}
     public BaseButton(String info, Icon icon){super(info,icon);}
     public BaseButton(Color colorGradient){super();this.isGradient=true; this.colorGradient=colorGradient;}
