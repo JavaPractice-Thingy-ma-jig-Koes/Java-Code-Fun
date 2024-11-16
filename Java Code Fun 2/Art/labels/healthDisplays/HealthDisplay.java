@@ -14,7 +14,7 @@ import characters.Characters;
 public class HealthDisplay extends JLabel {
 
     private transient Characters player;
-    private static ImageIcon redHeart = new ImageIcon("Java-Code-Fun/Java Code Fun 2/Art/labels/healthDisplays/redHeart.png");
+    private static ImageIcon redHeart = new ImageIcon("Java Code Fun 2/Art/labels/healthDisplays/redHeart.png");
     
         public HealthDisplay(Characters player) {
             super(redHeart);
@@ -37,7 +37,7 @@ public class HealthDisplay extends JLabel {
     public void update(){
        // setText("Player Hit Points : "+player.getHealth());
         System.out.println("New" + player.getClass() + "Health : "+player.getHealth()+".");
-        System.out.println(new File("").getAbsolutePath());
+        
 
 
     }

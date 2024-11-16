@@ -22,23 +22,23 @@ public class ReadyButton extends BaseButton implements ActionListener {
     private Player player;
     private static final Color grayness = new Color(184,181,194);
     private ImageIcon current;
-    private static final ImageIcon notReady = new ImageIcon("Java-Code-Fun/Java Code Fun 2/Art/buttons/notReadyButton.png");
-    private static final ImageIcon ready = new ImageIcon("Java-Code-Fun/Java Code Fun 2/Art/buttons/readyButton.png");
+    private static final ImageIcon notReady = new ImageIcon("Java Code Fun 2/Art/buttons/notReadyButton.png");
+    private static final ImageIcon ready = new ImageIcon("Java Code Fun 2/Art/buttons/readyButton.png");
     private static final Dimension base = new Dimension(ready.getIconWidth(),ready.getIconHeight());
     
         public ReadyButton(Player player){
             super(notReady);
             //super("Ready",new Color(140,140,140));
-        setPreferredSize(new Dimension(80,30));
+
         this.player=player;
-        setOpaque(false);
+        setOpaque(true);
 
         addActionListener(this);
         //setBorder(new LineBorder(Color.black,3, true) );
         //setBackground(grayness);
         setSize(base);
         setPreferredSize(base);
-        setBorderPainted(false);
+
         setMaximumSize(base);
     }
     @Override

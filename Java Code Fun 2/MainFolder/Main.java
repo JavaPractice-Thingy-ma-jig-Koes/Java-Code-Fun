@@ -1,5 +1,7 @@
 package MainFolder;
 
+import java.io.File;
+
 import Art.ClassPicker;
 import Art.GeneralGUI;
 import characters.playerStats.Player;
@@ -20,7 +22,7 @@ public class Main {
 
         System.out.println("\u001b[46m"+"Started!"+"\u001b[0m");
 
-
+        System.out.println("\u001b[42m"+new File("").getAbsolutePath()+"\u001b[0m");
 
 
         gui.print("Please Choose a Class");
