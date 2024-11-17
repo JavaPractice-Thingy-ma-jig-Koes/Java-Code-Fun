@@ -10,7 +10,7 @@ public class ColorPrint {
     public static void print(String info, int color)
     {
         System.out.print("\u001b["+color+"m");
-        System.out.println(info);
-        System.out.print("\u001b[0m");
+        System.out.print(info);
+        System.out.println("\u001b[0m");
     }
 }

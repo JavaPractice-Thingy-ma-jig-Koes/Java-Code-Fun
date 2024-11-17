@@ -2,7 +2,7 @@ package MainFolder;
 
 import java.io.File;
 
-import Art.ClassPicker;
+
 import Art.GeneralGUI;
 import characters.playerStats.Player;
 import combat.Combat;
@@ -23,7 +23,7 @@ public class Main {
 
         ColorPrint.print("Started",46);
 
-        ColorPrint.print(new File("").getAbsolutePath(),35);
+        ColorPrint.print(new File("").getAbsolutePath(),43);
 
 
         gui.print("Please Choose a Class");
