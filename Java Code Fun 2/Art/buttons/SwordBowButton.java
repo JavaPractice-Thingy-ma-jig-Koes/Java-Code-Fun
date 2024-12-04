@@ -8,25 +8,25 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JToolTip;
-import javax.swing.JButton;
-import Art.GeneralGUI;
+//import javax.swing.JToolTip; //look below
+
+
 import characters.playerStats.Player;
 
 public class SwordBowButton extends BaseButton implements ActionListener
 {
-    private JButton weapon;
+
     private boolean isSword = true;
-    private GeneralGUI gui;
-    private Player player;
-    private JToolTip info;
+
+    private transient Player player;
+    //private JToolTip info; //dunno how to use this yet
     private int doublecheck = 0;
     
     private static final ImageIcon melee = new ImageIcon("Java Code Fun 2/Art/buttons/melee.png");
     private static final ImageIcon ranged = new ImageIcon("Java Code Fun 2/Art/buttons/ranged.png");
     private static final Dimension base = new Dimension(melee.getIconWidth(),melee.getIconHeight());
 
-        public SwordBowButton(Player player, GeneralGUI gui)
+        public SwordBowButton(Player player)
         {
             super(melee);
 
@@ -44,8 +44,8 @@ public class SwordBowButton extends BaseButton implements ActionListener
         setFocusable(false);
         setMargin(new Insets(0, 0, 0, 0));
         setContentAreaFilled(false);
-                this.gui=gui;
-                this.player=player;
+
+
             setGreen();
             setToolTipText(player.getSwords().getName()); 
             addActionListener(this);

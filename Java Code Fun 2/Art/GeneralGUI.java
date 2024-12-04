@@ -16,38 +16,31 @@ import javax.swing.*;
  */
 public class GeneralGUI {
 
-    private TextArea t = new TextArea("");
+    
     //private Player player;
-    private SwordBowButton sbB;
+    
 
 
 
 
     private ConfigureFrame f = new ConfigureFrame(600,800);
-    private ReadyButton r;
     private JTabbedPane mainPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.WRAP_TAB_LAYOUT);
-    private JPanel combatPane = new JPanel();
-    private JPanel centerPanel = new JPanel();
-    private HealthDisplay phd;
-    private Dimension butt =new Dimension(80,30);
+    private CombatPane combatPane;
     
 
     public GeneralGUI(Player player){
         f.setTitle("Java Code Fun");
+        combatPane = new CombatPane(player);
 
 
-        sbB= new SwordBowButton(player,this);
-        phd = new HealthDisplay(player);
-        r = new ReadyButton(player);
         //this.player=player;
         setLayouts();
-        centerPanel.setSize(600,500);
+        
         addThings();
         setColors();
-        sbB.setBorder(BorderFactory.createLineBorder(Color.blue,5,true));
+        
 
-        r.setPreferredSize(butt);
-        sbB.setPreferredSize(butt);
+        
 
 
         mainPane.add("Stats",new JLabel("unfinished"));
@@ -64,10 +57,6 @@ public class GeneralGUI {
         mainPane.setLocation(10,10);
 
 
-
-        phd.setPreferredSize(new Dimension(200,20));
-
-
         makeViewable();
         f.pack();
     }
@@ -75,23 +64,15 @@ public class GeneralGUI {
     private void setLayouts(){
         f.setLayout(new BorderLayout());
 
-        combatPane.setLayout(new BorderLayout(5,5));
-        centerPanel.setLayout(new GridLayout(12,8,10,10));
+
     }
 
     private void addThings(){
         f.add(mainPane);
-
-        centerPanel.add(sbB);
-        centerPanel.add(r);
-        centerPanel.add(phd);
-
-        combatPane.add(t, BorderLayout.NORTH);
-        combatPane.add(centerPanel,BorderLayout.CENTER);
     }
     private void makeViewable(){
         combatPane.setVisible(true);
-        centerPanel.setVisible(true);
+
         mainPane.setVisible(true);
     }
 
@@ -102,7 +83,7 @@ public class GeneralGUI {
     private void setColors(){
 
         mainPane.setBackground(new Color(20,190,255));
-        centerPanel.setBackground(new Color(190, 215, 250));
+
         combatPane.setBackground(new Color(190, 215, 250));
     }
     public void clear(){
@@ -137,7 +118,7 @@ public class GeneralGUI {
     public void setPvis(boolean visible){
         //mainPane.setVisible(visible);
 
-        centerPanel.setVisible(visible);
+
         combatPane.setVisible(visible);
 
     }

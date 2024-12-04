@@ -13,6 +13,7 @@ public class Main {
 
     private static int event;
 
+
     private static Player toKill = new Player( 10, 5);
     private static GeneralGUI gui = new GeneralGUI(toKill);
     private static Combat scuffle = new Combat(gui, toKill);
@@ -38,9 +39,9 @@ public class Main {
         gui.clear();
         switch (event) {
             case 0:
-                scuffle.fight();
+            event++;
                 break;
-        
+
             default:
             Combat scuffle = new Combat(gui, toKill);
             scuffle.fight();
