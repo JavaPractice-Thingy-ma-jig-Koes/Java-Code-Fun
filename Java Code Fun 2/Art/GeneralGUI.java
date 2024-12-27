@@ -32,16 +32,9 @@ public class GeneralGUI {
         f.setTitle("Java Code Fun");
         combatPane = new CombatPane(player);
 
-
-        //this.player=player;
         setLayouts();
-        
         addThings();
         setColors();
-        
-
-        
-
 
         mainPane.add("Stats",new JLabel("unfinished"));
         mainPane.add("TBD",new JLabel("unfinished"));
@@ -78,7 +71,7 @@ public class GeneralGUI {
 
     public void print(String info){
         System.out.println("gui.TextArea - "+info);
-        t.print(info);
+        combatPane.t.print(info);
     }
     private void setColors(){
 
@@ -88,25 +81,25 @@ public class GeneralGUI {
     }
     public void clear(){
         System.out.println("gui.TextArea has been cleared");
-        t.clear();
+        combatPane.t.clear();
     }
     public void println(String info){
-        t.println(info);
+        combatPane.t.println(info);
     }
     public boolean getIsReady(){
-        return r.getIsReady();
+        return combatPane.r.getIsReady();
     }
     public void prepare(){
-        r.prepare();
+        combatPane.r.prepare();
     }
     public boolean getSwordBow(){
-        return sbB.getSwordBow();
+        return combatPane.sbB.getSwordBow();
     }
     public void enter(){
-        t.enter();
+        combatPane.t.enter();
     }
     public void update(){
-        phd.update();
+        combatPane.phd.update();
         f.pack();
         //ehd.update();
     }
