@@ -22,7 +22,7 @@ public class ReadyButton extends BaseButton implements ActionListener {
     private boolean clicked =false;
     private Player player;
     private static final Color grayness = new Color(184,181,194);
-    private ImageIcon current;
+
     private static final ImageIcon notReady = new ImageIcon("Java Code Fun 2/Art/buttons/notReadyButton.png");
     private static final ImageIcon ready = new ImageIcon("Java Code Fun 2/Art/buttons/readyButton.png");
     private static final Dimension base = new Dimension(ready.getIconWidth(),ready.getIconHeight());
@@ -33,7 +33,7 @@ public class ReadyButton extends BaseButton implements ActionListener {
 
         this.player=player;
         setOpaque(false);
-
+        setEnabled(false);
         addActionListener(this);
         //setBorder(new LineBorder(Color.black,3, true) );
         //setBackground(grayness);
@@ -58,7 +58,7 @@ public class ReadyButton extends BaseButton implements ActionListener {
     public void prepare(){
         //setBackground(grayness);
         //paintComponent(getGraphics());
-        current = ready;
+
         setIcon(ready);
         setEnabled(true);
 
@@ -81,7 +81,7 @@ public class ReadyButton extends BaseButton implements ActionListener {
             System.out.println("Ready Button Clicked when Ready");
         //setBackground(new Color(50,50,60));
         //setIcon(new ImageIcon(notReady.getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_FAST)));
-        current = notReady;
+
         setIcon(notReady);
         Main.onwards();
 

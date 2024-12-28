@@ -23,6 +23,7 @@ public class CombatPane extends JPanel {
         sbB= new SwordBowButton(p1);
         phd = new HealthDisplay(p1);
         r = new ReadyButton(p1);
+
         setLayouts();
         addToThis();
         addToCenter();
