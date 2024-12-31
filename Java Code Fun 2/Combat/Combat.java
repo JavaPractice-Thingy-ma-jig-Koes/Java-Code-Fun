@@ -3,6 +3,7 @@ package combat;
 
 
 import Art.GeneralGUI;
+import MainFolder.Main;
 import characters.monsterStats.*;
 import characters.monsterStats.presetMonsters.Dragon;
 import characters.playerStats.Player;
@@ -19,10 +20,10 @@ public class Combat {
     private int event;
 
 
-    public Combat(GeneralGUI gui, Player p1)  {
+    public Combat()  {
         e1 = new Dragon(1); //will become a method of its own class to create the enemies.
-        this.gui= gui;
-        this.p1=p1;
+        this.gui= Main.getGui();
+        this.p1=Main.getPlayer();
 
         gui.update();
         

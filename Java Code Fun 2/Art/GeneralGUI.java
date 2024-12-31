@@ -3,6 +3,7 @@ package Art;
 import Art.buttons.ReadyButton;
 import Art.buttons.SwordBowButton;
 import Art.labels.healthDisplays.HealthDisplay;
+import MainFolder.Main;
 import characters.playerStats.Player;
 
 
@@ -26,9 +27,10 @@ public class GeneralGUI {
     private ConfigureFrame f = new ConfigureFrame(600,800);
     private JTabbedPane mainPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.WRAP_TAB_LAYOUT);
     private CombatPane combatPane;
+    private Player player = Main.getPlayer();
     
 
-    public GeneralGUI(Player player){
+    public GeneralGUI(){
         f.setTitle("Java Code Fun");
         combatPane = new CombatPane(player);
 

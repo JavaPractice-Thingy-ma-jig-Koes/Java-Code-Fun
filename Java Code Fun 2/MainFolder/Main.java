@@ -18,6 +18,7 @@ public class Main {
     private static GeneralGUI gui = new GeneralGUI(toKill);
     private static Combat scuffle = new Combat(gui, toKill);
 
+    public static Player getPlayer(){return toKill;}
 
     public static void main(String[] args)  {
 
