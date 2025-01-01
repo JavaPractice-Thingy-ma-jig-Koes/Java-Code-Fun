@@ -15,10 +15,11 @@ public class Main {
 
 
     private static Player toKill = new Player( 10, 5);
-    private static GeneralGUI gui = new GeneralGUI(toKill);
-    private static Combat scuffle = new Combat(gui, toKill);
+    private static GeneralGUI gui = new GeneralGUI();
+    private static Combat scuffle = new Combat();
 
     public static Player getPlayer(){return toKill;}
+    public static GeneralGUI getGui(){return gui;}
 
     public static void main(String[] args)  {
 
@@ -36,20 +37,22 @@ public class Main {
 
     }
 
-    public static void onwards(){
+    public static void onwards(int event){
         gui.clear();
+        ColorPrint.print("Event "+event+ " triggered",31);
         switch (event) {
-            case 0:
-            event++;
+            case 1:
+            
                 break;
 
             default:
-            Combat scuffle = new Combat(gui, toKill);
+            ColorPrint.print("Default event triggered",31);
             scuffle.fight();
                 break;
         }
 
     }
+    public static void onwards(){onwards(event);}
 
     public static void commenceAdventure(int classNum)
     {

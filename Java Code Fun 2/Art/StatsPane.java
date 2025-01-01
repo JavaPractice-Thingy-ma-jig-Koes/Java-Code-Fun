@@ -13,10 +13,13 @@ public class StatsPane extends JPanel {
     
 private JLabel healthLine1;
 private JLabel healthLine2;
+private Player player;
 
     public StatsPane(Player player)
     {
         super(new GridLayout(4,4,4,2){});
+
+        this.player = player;
 
         healthLine1 = new JLabel("Hit Points");
         healthLine2 = new JLabel(player.getHealth()+"/"+player.getMaxHealth());
@@ -31,4 +34,8 @@ private JLabel healthLine2;
 
     }
 
+    public void update()
+    {
+        healthLine2.setText(player.getHealth()+"/"+player.getMaxHealth());
+    }
 }

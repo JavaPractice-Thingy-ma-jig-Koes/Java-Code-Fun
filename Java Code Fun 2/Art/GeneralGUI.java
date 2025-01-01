@@ -28,6 +28,7 @@ public class GeneralGUI {
     private JTabbedPane mainPane = new JTabbedPane(JTabbedPane.TOP,JTabbedPane.WRAP_TAB_LAYOUT);
     private CombatPane combatPane;
     private Player player = Main.getPlayer();
+    private StatsPane stats = new StatsPane(player);
     
 
     public GeneralGUI(){
@@ -38,8 +39,8 @@ public class GeneralGUI {
         addThings();
         setColors();
 
-        mainPane.add("Stats",new JLabel("unfinished"));
         mainPane.add("TBD",new JLabel("unfinished"));
+        mainPane.add("Stats",stats);
         mainPane.setEnabledAt(mainPane.indexOfTab("TBD"),false);
 
 
